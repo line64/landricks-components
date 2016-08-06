@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './styles';
 import { ThemePropagator } from '../../';
+import FontAwesome from 'react-fontawesome';
 
 function renderFeature(feature, s) {
   return (
     <article key={feature.key} style={s.feature}>
+      <FontAwesome name='rocket' />
       <h5 style={s.featureTitle}>{feature.title}</h5>
       <p style={s.featureDescription}>{feature.description}</p>
     </article>
