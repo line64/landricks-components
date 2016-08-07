@@ -12,6 +12,7 @@ export default function(props) {
       backgroundColor: primaryColor,
       fontSize: '2em',
       padding: '15px',
+      margin: '5px',
       borderStyle: 'none',
       borderBottom: 'solid 4px',
       borderColor: darkenColor(primaryColor, 0.3)

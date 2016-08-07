@@ -3,15 +3,20 @@ import styles from './styles';
 import { ThemePropagator } from '../../';
 import FontAwesome from 'react-fontawesome';
 
+function renderIcon(icon, s) {
+  if (!icon) return;
+  return (<FontAwesome name={icon} size="4x" />);
+}
+
 function renderFeature(feature, s) {
   return (
     <article key={feature.key} style={s.feature}>
-      <FontAwesome name='rocket' />
+      { renderIcon(feature.icon) }
       <h5 style={s.featureTitle}>{feature.title}</h5>
       <p style={s.featureDescription}>{feature.description}</p>
     </article>
   );
-}
+};
 
 export default (props) => {
 

@@ -17,8 +17,8 @@ export default (props) => {
         <h1 style={ s.h1 }>{ props.title }</h1>
         <h2 style={ s.h2 }>{ props.subtitle }</h2>
         <ThemePropagator theme={ props.theme }>
-          <CallToAction text="Play Store" bandStyle={props.bandStyle} />
-          <CallToAction text="Apple Store" bandStyle={props.bandStyle} />
+          <CallToAction icon="android" text="Play Store" bandStyle={props.bandStyle} />
+          <CallToAction icon="apple" text="Apple Store" bandStyle={props.bandStyle} />
         </ThemePropagator>
       </div>
     </section>

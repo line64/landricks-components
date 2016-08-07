@@ -1,5 +1,11 @@
 import React from 'react';
 import styles from './styles';
+import FontAwesome from 'react-fontawesome';
+
+function renderIcon(icon, s) {
+  if (!icon) return;
+  return (<FontAwesome name={icon} />);
+}
 
 export default (props) => {
 
@@ -7,8 +13,8 @@ export default (props) => {
 
   return (
     <button style={ s.box }>
-      {props.text}
+      {renderIcon(props.icon)} {props.text}
     </button>
   );
-  
+
 }

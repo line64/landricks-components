@@ -42,7 +42,8 @@ export default function (props) {
       borderRadius: 4
     },
     featureTitle: {
-      fontSize: '1.1rem'
+      fontSize: '1.1rem',
+      margin: 0
     },
     featureDescription: {
 
