@@ -18,8 +18,9 @@ export default function (props) {
     phoneColumn: {
       flex: 2,
     },
-    phoneImg: {
-      width: '300px'
+    phoneCanvas: {
+      width: '300px',
+      height: '572px'
     },
     textColumn: {
       padding: '5%',
