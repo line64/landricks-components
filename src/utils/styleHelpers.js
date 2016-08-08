@@ -1,13 +1,24 @@
 import Color from 'color';
 
 export const DEFAULT_THEME = {
-  canvasBgColor: '#ff0000',
-  defaultFontSize: '62.5%',
-  defaultFontFamily: 'Times',
+  canvasBgColor: '#ffffff',
+  defaultFontFamily: "'Open Sans', sans-serif",
+  defaultFontSize: '60%',
   bandStyleA: {
-    background: 'black',
-    primaryColor: 'red',
-    textColor: 'white'
+    background: 'url('+require('../images/default-theme-bandA-background.png')+') repeat',
+    primaryColor: '#dd7554',
+    textColor: '#ffffff'
+  },
+  bandStyleB: {
+    background: 'url('+require('../images/default-theme-bandC-background.jpg')+') repeat',
+    baseColor: '#cccccc',
+    primaryColor: '#dd7554',
+    textColor: '#666666'
+  },
+  bandStyleC: {
+    baseColor: '#dd7554',
+    primaryColor: '#000000',
+    textColor: '#ffffff'
   }
 };
 
