@@ -44,7 +44,7 @@ export default function (props) {
       padding: '2%',
       borderRadius: 4
     },
-    'reviewBefore': {
+    reviewBefore: {
       top: '100%',
       left: '50%',
       border: 'solid transparent',
@@ -58,7 +58,7 @@ export default function (props) {
       borderWidth: '21px',
       marginLeft: '-21px'
     },
-    'reviewAfter': {
+    reviewAfter: {
       top: '100%',
       left: '50%',
       border: 'solid transparent',
