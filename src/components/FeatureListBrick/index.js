@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles';
-import { ThemePropagator } from '../../';
 import FontAwesome from 'react-fontawesome';
 
 function renderIcon(icon, s) {
@@ -18,14 +17,26 @@ function renderFeature(feature, s) {
   );
 };
 
+function renderTitle(title, s) {
+  if (title) return <h3 style={ s.title }>{ title }</h3>
+
+  return null; 
+};
+
+function renderSubTitle(subtitle) {
+  if (subtitle) return <h4 style={ s.subtitle }>{ subtitle }</h4>
+
+  return null;
+};
+
 export default (props) => {
 
   let s = styles(props);
 
   return (
     <section style={ s.box }>
-      <h3 style={ s.title }>{ props.title }</h3>
-      <h4 style={ s.subtitle }>{ props.subtitle }</h4>
+      { renderTitle(props.title, s) }
+      { renderSubTitle(props.subtitle, s) }
       <div style={ s.featureContainer }>
         { props.features.map((f) => renderFeature(f, s)) }
       </div>

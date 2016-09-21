@@ -15,7 +15,8 @@ export default function(props) {
       margin: '5px',
       borderStyle: 'none',
       borderBottom: 'solid 4px',
-      borderColor: darkenColor(primaryColor, 0.3)
+      borderColor: darkenColor(primaryColor, 0.3),
+      textDecoration: 'none'
     }
   };
 

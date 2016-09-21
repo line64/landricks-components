@@ -1,19 +1,27 @@
-import ThemePropagator from './components/ThemePropagator';
+import ContextPropagator from './components/ContextPropagator';
 import LandingCanvas from './components/LandingCanvas';
-import MainTitleBrick from './components/MainTitleBrick';
 import AppTitleBrick from './components/AppTitleBrick';
 import FeatureListBrick from './components/FeatureListBrick';
 import ReviewListBrick from './components/ReviewListBrick';
+import FooterBrick from './components/FooterBrick';
+import SquizMailBrick from './components/SquizMailBrick';
+import BannerBrick from './components/BannerBrick';
+import CustomBrick from './components/CustomBrick';
+import BigImageBrick from './components/BigImageBrick';
 import CallToAction from './components/CallToAction';
 import styleHelpers from './utils/styleHelpers';
 
 export {
-  ThemePropagator,
+  ContextPropagator,
   LandingCanvas,
-  MainTitleBrick,
   AppTitleBrick,
   FeatureListBrick,
   ReviewListBrick,
+  FooterBrick,
+  SquizMailBrick,
+  BannerBrick,
+  CustomBrick,
+  BigImageBrick,
   CallToAction,
   styleHelpers
 };

@@ -81,6 +81,17 @@ Add these components as children of the LandingCanvas:
       bandStyle="A"
       cta={{ text: 'get it now!' }}
     />
+    <FooterBrick
+      bandStyle="Footer"
+      productName="Product Name"
+      logo={ require('./images/ProductImg.png') }
+      copyRight={ true } 
+      social={[
+        { key: 1, icon: 'facebook', link: 'http://wwww.facebook.com' },
+        { key: 2, icon: 'instagram', link: 'http://wwww.instagram.com' },
+        { key: 3, icon: 'twitter', link: 'http://wwww.twitter.com' }
+      ]}
+    />
 
 **Run your app**
 

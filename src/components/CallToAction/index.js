@@ -12,9 +12,9 @@ export default (props) => {
   const s = styles(props);
 
   return (
-    <button style={ s.box }>
-      {renderIcon(props.icon)} {props.text}
-    </button>
+	<a key={ props.key } href={ props.link } target="_blank" style={ s.box }>
+  		{renderIcon(props.icon)} {props.text}
+	</a>
   );
 
 }

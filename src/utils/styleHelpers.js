@@ -4,20 +4,8 @@ export const DEFAULT_THEME = {
   canvasBgColor: '#ffffff',
   defaultFontFamily: "'Open Sans', sans-serif",
   defaultFontSize: '60%',
-  bandStyleA: {
-    background: 'url('+require('../images/default-theme-bandA-background.png')+') repeat',
-    primaryColor: '#dd7554',
-    textColor: '#ffffff'
-  },
-  bandStyleB: {
-    background: 'url('+require('../images/default-theme-bandC-background.jpg')+') repeat',
-    baseColor: '#cccccc',
-    primaryColor: '#dd7554',
-    textColor: '#666666'
-  },
-  bandStyleC: {
-    baseColor: '#dd7554',
-    primaryColor: '#000000',
+  bandStyleDefault: {
+    primaryColor: '#4db6ac',
     textColor: '#ffffff'
   }
 };
@@ -27,7 +15,7 @@ export function safeThemeFromProps(props) {
 }
 
 export function getBandStyle(theme, bandStyleKey) {
-  return theme[`bandStyle${bandStyleKey}`] || DEFAULT_THEME.bandStyleA;
+  return theme[`bandStyle${bandStyleKey}`] || DEFAULT_THEME.bandStyleDefault;
 }
 
 export function lightenColor(color, amount) {

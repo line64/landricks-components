@@ -8,7 +8,6 @@ export default function (props) {
   return {
     box: {
       background: background,
-      backgroundColor: baseColor,
       color: textColor,
       padding: '5%',
       textAlign: 'center'
@@ -36,17 +35,19 @@ export default function (props) {
       margin: '1%',
       backgroundColor: lightenColor(baseColor, 0.2),
       borderStyle: 'solid',
-      borderWidth: '3px',
+      borderWidth: '0px',
       borderColor: lightenColor(baseColor, 0.1),
       padding: '2%',
       borderRadius: 4
     },
     featureTitle: {
-      fontSize: '1.1rem',
-      margin: 0
+      fontSize: '1.2rem',
+      margin: 0,
+      marginBottom: 10,
+      marginTop: 10
     },
     featureDescription: {
-
+      fontSize: '0.6rem'
     }
   };
 

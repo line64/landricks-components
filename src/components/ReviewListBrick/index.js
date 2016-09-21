@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import { ThemePropagator } from '../../';
-import DEFAULT_ICON_IMG from '../../images/default-review-icon.png';
+import FontAwesome from 'react-fontawesome';
 
 function getReviewIcon(icon) {
   return icon || DEFAULT_ICON_IMG;
@@ -10,10 +9,17 @@ function getReviewIcon(icon) {
 function renderReview(review, s) {
   return (
     <article key={review.key} style={s.review}>
-      <style scoped>{`root:before ${JSON.stringify(s.reviewBefore)}`}</style>
-      <h5 style={s.reviewAuthor}>{review.author}</h5>
-      <p style={s.reviewText}>"{review.text}"</p>
-      <style scoped>{`root:after ${JSON.stringify(s.reviewAfter)}`}</style>
+      <div style={ s.reviewContent }>
+        <style scoped>{`root:before ${JSON.stringify(s.reviewBefore)}`}</style>
+        <FontAwesome name="quote-left" style={ s.quoteLeft } />
+        <p style={s.reviewText}>"{review.text}"</p>
+        <style scoped>{`root:after ${JSON.stringify(s.reviewAfter)}`}</style>      
+        <div style={ s.details }>  
+          <img style={s.image} src={ getReviewIcon(review.icon) } />
+          <span style={s.reviewAuthor}>{review.author}</span>
+        </div>
+        <p style={s.reviewCountry}>{review.country}</p>  
+      </div>
     </article>
   );
 };
@@ -34,7 +40,6 @@ export default (props) => {
       <div style={ s.reviewContainer }>
         { props.reviews.map((f) => renderReview(f, s)) }
       </div>
-      <img style={s.image} src={ getReviewIcon(props.icon) } />
     </section>
   );
 

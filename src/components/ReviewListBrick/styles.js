@@ -30,18 +30,23 @@ export default function (props) {
       justifyContent: 'center'
     },
     image: {
-      width: '100px'
+      width: '50px',
+      height: 50,
+      marginRight: 20
     },
     review: {
       flexGrow: 0,
+      flex: 1,
       flexShrink: 0,
-      flexBasis: '750px',
-      margin: '1%',
+      flexBasis: '250px',      
+      margin: '1%'
+    },
+    reviewContent: {
       backgroundColor: lightenColor(baseColor, 0.2),
       borderStyle: 'solid',
-      borderWidth: '4px',
+      borderWidth: '2px',
       borderColor: lightenColor(baseColor, 0.1),
-      padding: '2%',
+      padding: '5%',
       borderRadius: 4
     },
     reviewBefore: {
@@ -73,13 +78,33 @@ export default function (props) {
       marginLeft: '-15px'
     },
     reviewAuthor: {
-      fontSize: '1.1rem',
+      fontSize: '0.8rem',
+      fontWeight: 600,
       margin: 0,
-      textAlign: 'left'
+      flex: 1,
+      verticalAlign: 'middle',
+      lineHeight: '50px'
+    },
+    reviewCountry: {
+      fontSize: '0.5rem',
+      margin: 0,
+      marginTop: '-20px',
+      paddingLeft: '50'
     },
     reviewText: {
       fontSize: 16,
       fontStyle: 'italic'
+    },
+    quoteLeft: {
+      color: '#cecede',
+      display: 'flex',
+      fontSize: '2em',
+      marginRight: 10
+    },
+    details: {
+      display: 'inline-flex',
+      height: 50,
+      marginBottom: 20
     }
   };
 

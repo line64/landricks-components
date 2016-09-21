@@ -1,7 +1,23 @@
 import React from 'react';
 import styles from './styles';
-import { CallToAction, ThemePropagator } from '../../';
-import PhoneCanvas from './PhoneCanvas';
+import { ContextPropagator, CallToAction } from '../../';
+
+function renderLogo(props, s) {
+  if (props.title){
+   return (
+      <div style={ s.companyName }>
+          <img src={ props.logo } style={ s.logo } />
+          <h4 style={ s.h4 }>{ props.title }</h4>
+      </div>    
+    )
+  } 
+  return null;
+};
+
+function renderImage(img, s) {
+  if (!img) return null;
+  return <img src={ img } style={ s.image } />
+};
 
 export default (props) => {
 
@@ -9,16 +25,17 @@ export default (props) => {
 
   return (
     <section style={ s.box }>
-      <div style={ s.phoneColumn }>
-        <PhoneCanvas screenshotUrl={ props.screenshotUrl } />
-      </div>
       <div style={ s.textColumn }>
-        <h1 style={ s.h1 }>{ props.title }</h1>
+        { renderLogo(props, s) }
         <h2 style={ s.h2 }>{ props.subtitle }</h2>
-        <ThemePropagator theme={ props.theme }>
-          <CallToAction icon="android" text="Play Store" bandStyle={props.bandStyle} />
-          <CallToAction icon="apple" text="Apple Store" bandStyle={props.bandStyle} />
-        </ThemePropagator>
+        <ContextPropagator >
+          <div style={ s.buttons }>
+            { props.buttons }
+          </div>  
+        </ContextPropagator>
+      </div>
+      <div style={ s.imageColumn }>
+        { renderImage(props.image, s) }
       </div>
     </section>
   );
