@@ -40,4 +40,4 @@ Mac
 .DS_Store
 
 # Dist Dir
-lib
+#lib
