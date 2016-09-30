@@ -1,6 +1,7 @@
 import ContextPropagator from './components/ContextPropagator';
 import LandingCanvas from './components/LandingCanvas';
 import AppTitleBrick from './components/AppTitleBrick';
+import VideoTitleBrick from './components/VideoTitleBrick';
 import FeatureListBrick from './components/FeatureListBrick';
 import ReviewListBrick from './components/ReviewListBrick';
 import FooterBrick from './components/FooterBrick';
@@ -15,6 +16,7 @@ export {
   ContextPropagator,
   LandingCanvas,
   AppTitleBrick,
+  VideoTitleBrick,
   FeatureListBrick,
   ReviewListBrick,
   FooterBrick,

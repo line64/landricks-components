@@ -3,7 +3,18 @@ import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
-  let { background, textColor, padding } = getBandStyle(theme, props.bandStyle);
+  let { background,
+        textColor, 
+        padding, 
+        imageWidth, 
+        imageHeight, 
+        title_margin, 
+        title_padding,
+        title_fontSize,
+        subtitle_fontSize,
+        fontWeight 
+
+  } = getBandStyle(theme, props.bandStyle);
 
   return {
     box: {
@@ -21,19 +32,22 @@ export default function (props) {
       alignItems: 'center'
     },
     h1: {
-      fontSize: '2.5rem',
-      fontWeight: 'bolder',
-      maring: 0,
-      marginBottom: '3%'
+      fontSize: title_fontSize ||'2.5rem',
+      fontWeight: fontWeight || 'bolder',
+      margin: title_margin || '0 0 3%',
+      padding: title_padding || '0'
     },
     h2: {
-      fontSize: '1.1rem',
+      fontSize: subtitle_fontSize  || '1.1rem',
       fontWeight: 'normal',
       maring: 0,
       marginBottom: '5%'
     },
     imageContainer: {
       textAlign: 'center'
+    },
+    flex: {
+      display: 'flex'
     },
     imageContainerOnLeft: {
       textAlign: 'center',
@@ -42,12 +56,19 @@ export default function (props) {
     },
     contentOnRight: {
       display: 'inline-block',
-      textAlign: 'right',
-      flex: 1
+      textAlign: 'center',
+      flex: 1,
+      padding: '0 5%'
     },
     image: {
-      width: '90%',
-      maxHeight: '60vh'
+      width: imageWidth || '90%',
+      maxHeight: imageHeight || '60vh'
+    },
+    divider: {
+      width: '10%',
+      background: 'rgb(0, 182, 189)',
+      height: '2px',
+      border: 'none'
     }
   };
 
