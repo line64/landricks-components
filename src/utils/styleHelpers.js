@@ -1,12 +1,15 @@
-import Color from 'color';
+import { assign } from 'lodash';
 
 export const DEFAULT_THEME = {
-  canvasBgColor: '#ffffff',
+  canvasBgColor: '#FAFAFA',
   defaultFontFamily: "'Open Sans', sans-serif",
   defaultFontSize: '60%',
   bandStyleDefault: {
-    primaryColor: '#4db6ac',
-    textColor: '#ffffff'
+    primaryColor: '#4051B5',
+    primaryTextColor: '#FFFFFF',
+    secondaryColor: '#FAFAFA',
+    secondaryTextColor: '#747474',
+    activeColor: '#E91C63'
   }
 };
 
@@ -15,13 +18,5 @@ export function safeThemeFromProps(props) {
 }
 
 export function getBandStyle(theme, bandStyleKey) {
-  return theme[`bandStyle${bandStyleKey}`] || DEFAULT_THEME.bandStyleDefault;
-}
-
-export function lightenColor(color, amount) {
-  return Color(color).lighten(amount).rgbString();
-}
-
-export function darkenColor(color, amount) {
-  return Color(color).darken(amount).rgbString();
+  return assign(DEFAULT_THEME.bandStyleDefault, theme[`bandStyle${bandStyleKey}`] || {});
 }

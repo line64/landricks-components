@@ -27,7 +27,7 @@ Add the following import statement to src/App.js
 
     import {
       LandingCanvas,
-      MainTitleBrick,
+      BannerTitleBrick,
       AppTitleBrick,
       FeatureListBrick
     } from 'landricks-components';
@@ -50,12 +50,10 @@ Add these components as children of the LandingCanvas:
     <AppTitleBrick
       title="The best mobile app of all times!"
       subtitle="An app so revolutionary, that it will blow your mind away and make you forget about all other apps in your phone."
-      bandStyle="A"
     />
     <FeatureListBrick
       title="My App Features"
       subtitle="Batteries not included"
-      bandStyle="C"
       features={[
         { key: 1, title: 'virtual reality', description: 'fancy tech titles to get your attention'},
         { key: 2, title: 'big data', description: 'fancy tech titles to get your attention'},
@@ -65,7 +63,6 @@ Add these components as children of the LandingCanvas:
     <FeatureListBrick
       title="More Features"
       subtitle="Just to show a different band style"
-      bandStyle="B"
       features={[
         { key: 1, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
         { key: 2, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
@@ -75,11 +72,9 @@ Add these components as children of the LandingCanvas:
         { key: 6, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
       ]}
     />
-    <MainTitleBrick
+    <BannerTitleBrick
       title="It's time to click my button!"
       subtitle="Now that you've read everything you need to know, make my conversion funnel happy and click this CTA"
-      bandStyle="A"
-      cta={{ text: 'get it now!' }}
     />
     <FooterBrick
       bandStyle="Footer"

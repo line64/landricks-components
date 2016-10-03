@@ -10,11 +10,9 @@ function getViewportData() {
 }
 
 function renderThemedChildren(props) {
-
   return React.Children.map(props.children, (child) => {
     return React.cloneElement(child, { theme: props.theme, viewport: getViewportData() });
   });
-
 }
 
 export default (props) => {

@@ -1,43 +1,53 @@
 import React from 'react';
 import styles from './styles';
-import { ContextPropagator, CallToAction } from '../../';
 
-function renderLogo(props, s) {
-  if (props.title){
-   return (
-      <div style={ s.companyName }>
-          <img src={ props.logo } style={ s.logo } />
-          <h4 style={ s.h4 }>{ props.title }</h4>
-      </div>    
-    )
-  } 
-  return null;
-};
+function handleClick(onClick, args) {
+  return (event) => {
+    event.preventDefault();
+    onClick(args);
+  }
+}
 
-function renderImage(img, s) {
-  if (!img) return null;
-  return <img src={ img } style={ s.image } />
-};
+function renderImage(s, props) {
+  let src = props.imageUrl || props.image;
+  return (<img style={ s.image } src={ src } />);
+}
+
+function renderContent(s, props) {
+  if (props.buttons) {
+    return props.buttons.map(button => {
+      return (<a href="#" onClick={ handleClick(button.onClick) } style={ s.button }>{ button.label }</a>);
+    });
+  }
+  return props.content;
+}
 
 export default (props) => {
 
   let s = styles(props);
 
   return (
+
     <section style={ s.box }>
+
       <div style={ s.textColumn }>
-        { renderLogo(props, s) }
+
+        <h1 style={ s.h1 }>{ props.title }</h1>
+
         <h2 style={ s.h2 }>{ props.subtitle }</h2>
-        <ContextPropagator >
-          <div style={ s.buttons }>
-            { props.buttons }
-          </div>  
-        </ContextPropagator>
+
+        { renderContent(s, props) }
+
       </div>
+
       <div style={ s.imageColumn }>
-        { renderImage(props.image, s) }
+
+        { renderImage(s, props) }
+
       </div>
+
     </section>
+
   );
 
 }

@@ -9,7 +9,6 @@ import SquizMailBrick from './components/SquizMailBrick';
 import BannerBrick from './components/BannerBrick';
 import CustomBrick from './components/CustomBrick';
 import BigImageBrick from './components/BigImageBrick';
-import CallToAction from './components/CallToAction';
 import styleHelpers from './utils/styleHelpers';
 
 export {
@@ -24,6 +23,5 @@ export {
   BannerBrick,
   CustomBrick,
   BigImageBrick,
-  CallToAction,
   styleHelpers
 };
