@@ -18,5 +18,5 @@ export function safeThemeFromProps(props) {
 }
 
 export function getBandStyle(theme, bandStyleKey) {
-  return assign(DEFAULT_THEME.bandStyleDefault, theme[`bandStyle${bandStyleKey}`] || {});
+  return assign({}, DEFAULT_THEME.bandStyleDefault, theme[`bandStyle${bandStyleKey}`] || {});
 }

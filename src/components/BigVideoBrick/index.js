@@ -8,15 +8,14 @@ function handleClick(onClick, args) {
   }
 }
 
-function renderImage(s, props) {
-  let src = props.imageUrl || props.image;
-  return (<img style={ s.image } src={ src } />);
+function renderVideo(s, props) {
+  return (<video src={ props.videoUrl } autoPlay={ true } loop={ true } style={ s.video } />);
 }
 
 function renderContent(s, props) {
   if (props.buttons) {
-    return props.buttons.map(button => {
-      return (<a href="#" onClick={ handleClick(button.onClick) } style={ s.button }>{ button.label }</a>);
+    return props.buttons.map((button, index) => {
+      return (<a key={ index } href="#" onClick={ handleClick(button.onClick) } style={ s.button }>{ button.label }</a>);
     });
   }
   return props.content;
@@ -40,9 +39,9 @@ export default (props) => {
 
       </div>
 
-      <div style={ s.imageColumn }>
+      <div style={ s.videoColumn }>
 
-        { renderImage(s, props) }
+        { renderVideo(s, props) }
 
       </div>
 

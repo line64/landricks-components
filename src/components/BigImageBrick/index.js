@@ -1,84 +1,53 @@
 import React from 'react';
 import styles from './styles';
-import { ContextPropagator, CallToAction } from '../../';
 
-function renderContent(props, s) {
-
-  if (props.imageOnLeft) {
-
-    return renderImageOnLeft(props, s);
-
+function handleClick(onClick, args) {
+  return (event) => {
+    event.preventDefault();
+    onClick(args);
   }
-
-  return renderImageBottom(props, s);
-
 }
 
-function renderTitle(props, s) {
-  if (!props.title) return null;
-  return <h1 style={ s.h1 }>{ props.title }</h1>
+function renderImage(s, props) {
+  let src = props.imageUrl || props.image;
+  return (<img style={ s.image } src={ src } />);
 }
 
-
-function renderSubtitle(props, s) {
-  if (!props.subtitle) return null;
-  return <h2 style={ s.h2 }>{ props.subtitle }</h2>
-}
-
-function renderImageBottom (props, s) {
-  
-  return (
-    <section style={ s.box }>
-      { renderTitle(props, s) }
-      { renderSubtitle(props, s) }
-      <div style={ s.imageContainer }>
-        <img style={ s.image } src={ props.image } />
-      </div>
-    </section>
-  );
-
-}
-
-function renderImageOnLeft (props, s) {
-  
-  return (
-    <section style={ s.flexbox }>
-      <div style={ s.imageContainerOnLeft }>
-        <img style={ s.image } src={ props.image } />
-      </div>
-      { renderContentRight(props, s) }
-    </section>
-  );
-
-}
-
-function renderContentRight(props, s) {
-  return(
-    <div style={ s.contentOnRight }>
-      <h1 style={ s.h1 }>{ props.title }</h1>
-      { props.divider ? (<hr style={ s.divider } />) : null }
-      <h2 style={ s.h2 }>{ props.subtitle }</h2>
-      <div style={ s.flex } >
-        { props.items.map((item) => renderItems(item, s)) }
-      </div>  
-    </div>
-  )
-}
-
-function renderItems(item, s) {
-  return(
-    <div key={ item.key }>
-      <img src={ item.src } />
-      <h2>{ item.title }</h2>
-      <p>{ item.subtitle }</p>
-    </div>
-  )
+function renderContent(s, props) {
+  if (props.buttons) {
+    return props.buttons.map((button, index) => {
+      return (<a key={ index } href="#" onClick={ handleClick(button.onClick) } style={ s.button }>{ button.label }</a>);
+    });
+  }
+  return props.content;
 }
 
 export default (props) => {
 
   let s = styles(props);
 
-  return renderContent(props, s);
+  return (
+
+    <section style={ s.box }>
+
+      <div style={ s.textColumn }>
+
+        <h1 style={ s.h1 }>{ props.title }</h1>
+
+        <h2 style={ s.h2 }>{ props.subtitle }</h2>
+
+        { renderContent(s, props) }
+
+      </div>
+
+      <div style={ s.imageColumn }>
+
+        { renderImage(s, props) }
+
+      </div>
+
+    </section>
+
+  );
 
 }

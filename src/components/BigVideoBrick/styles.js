@@ -16,8 +16,10 @@ export default function (props) {
     contentStyle,
     titleStyle,
     subtitleStyle,
-    imageStyle,
-    buttonStyle
+    videoStyle,
+    buttonStyle,
+    textColumnStyle,
+    videoColumnStyle
 
   } = getBandStyle(theme, props.bandStyle);
 
@@ -25,7 +27,8 @@ export default function (props) {
 
     viewport,
     secondaryBrick,
-    imageOnRight
+    videoOnRight,
+    videoOnBottom
 
   } = props;
 
@@ -37,7 +40,7 @@ export default function (props) {
       padding: '7% 0 8%',
       height: 'auto'
     },
-    imageColumn: {
+    videoColumn: {
       flex: '1',
       padding: '0 5%'
     },
@@ -54,8 +57,9 @@ export default function (props) {
       fontWeight: 'normal',
       marginBottom: '2rem'
     },
-    image: {
-      maxHeight: '50vh'
+    video: {
+      width: '100%',
+      height: 'auto'
     },
     button: {
       display: 'inline-block',
@@ -73,15 +77,25 @@ export default function (props) {
     styles.box.color = secondaryTextColor;
   }
 
-  if (imageOnRight) {
+  if (videoOnRight) {
     styles.box.flexDirection = 'row-reverse';
+  }
+
+  if (videoOnBottom) {
+    styles.box.flexDirection = 'column';
+    styles.box.padding = '0';
+    styles.box.textAlign = 'center';
+    styles.textColumn.padding = '5% 5% 1%';
+    styles.videoColumn.padding = '1% 5% 5%';
   }
 
   assign(styles.box, contentStyle || {});
   assign(styles.h1, titleStyle || {});
   assign(styles.h2, subtitleStyle || {});
-  assign(styles.image, imageStyle || {});
+  assign(styles.video, videoStyle || {});
   assign(styles.button, buttonStyle || {});
+  assign(styles.textColumn, textColumnStyle || {});
+  assign(styles.videoColumn, videoColumnStyle || {});
 
   switch (viewport) {
     case 'xs':

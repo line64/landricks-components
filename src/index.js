@@ -1,7 +1,6 @@
 import ContextPropagator from './components/ContextPropagator';
 import LandingCanvas from './components/LandingCanvas';
-import AppTitleBrick from './components/AppTitleBrick';
-import VideoTitleBrick from './components/VideoTitleBrick';
+import BigVideoBrick from './components/BigVideoBrick';
 import FeatureListBrick from './components/FeatureListBrick';
 import ReviewListBrick from './components/ReviewListBrick';
 import FooterBrick from './components/FooterBrick';
@@ -14,8 +13,7 @@ import styleHelpers from './utils/styleHelpers';
 export {
   ContextPropagator,
   LandingCanvas,
-  AppTitleBrick,
-  VideoTitleBrick,
+  BigVideoBrick,
   FeatureListBrick,
   ReviewListBrick,
   FooterBrick,
