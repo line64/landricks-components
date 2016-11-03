@@ -5,9 +5,10 @@ import FeatureListBrick from './components/FeatureListBrick';
 import ReviewListBrick from './components/ReviewListBrick';
 import FooterBrick from './components/FooterBrick';
 import SquizMailBrick from './components/SquizMailBrick';
-import BannerBrick from './components/BannerBrick';
+import TitleBrick from './components/TitleBrick';
 import CustomBrick from './components/CustomBrick';
 import BigImageBrick from './components/BigImageBrick';
+import NavigationBrick from './components/NavigationBrick';
 import styleHelpers from './utils/styleHelpers';
 
 export {
@@ -18,8 +19,9 @@ export {
   ReviewListBrick,
   FooterBrick,
   SquizMailBrick,
-  BannerBrick,
+  TitleBrick,
   CustomBrick,
   BigImageBrick,
+  NavigationBrick,
   styleHelpers
 };
