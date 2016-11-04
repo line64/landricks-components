@@ -33,6 +33,7 @@ export default function (props) {
       left: 0,
       width: '100%',
       height: 'auto',
+      zIndex: 1000
     },
     boxContent: {
       background: backgroundColor || 'rgba(0,0,0,0)',

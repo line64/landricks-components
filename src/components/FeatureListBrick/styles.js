@@ -1,63 +1,100 @@
-import { safeThemeFromProps, getBandStyle, lightenColor } from '../../utils/styleHelpers';
+import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
+import { assign } from 'lodash';
 
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
-  let { background, baseColor, textColor } = getBandStyle(theme, props.bandStyle)
 
-  return {
+  let {
+
+    backgroundColor,
+    textColor,
+
+    contentStyle,
+    titleStyle,
+    subtitleStyle,
+    itemStyle,
+    itemTextStyle,
+    itemIconStyle
+
+  } = getBandStyle(theme, props.bandStyle);
+
+  let {
+
+    viewport,
+    mode
+
+  } = props;
+
+  let styles = {
     box: {
-      background: background,
+      background: backgroundColor,
       color: textColor,
       padding: '5%',
+      height: 'auto',
       textAlign: 'center'
     },
-    title: {
-      fontSize: '1.8rem',
-      fontWeight: '400',
-      color: '#000',
-      maring: 0,
-      marginBottom: '1%'
+    h1: {
+      fontSize: '2.25rem',
+      fontWeight: 'bold',
+      margin: '0 0 1rem'
     },
-    subtitle: {
-      fontSize: '1.1rem',
-      fontWeight: 'normal',
-      maring: 0
-    },
-    featureContainer: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      textAlign: 'center',
-      marginTop: 50
-    },
-    feature: {
-      flexGrow: 0,
-      flexShrink: 0,
-      flexBasis: '200px',
-      margin: '1%',
-      borderStyle: 'solid',
-      borderWidth: '2px',
-      borderColor: lightenColor(baseColor, 0.1),
-      padding: '2%',
-      borderRadius: 4
-    },
-    featureTitle: {
+    h2: {
       fontSize: '1rem',
-      fontWeight: '300',
-      margin: 0,
-      marginBottom: 10,
-      marginTop: 10
+      fontWeight: 'normal',
+      lineHeight: '1.5rem',
+      margin: '0'
     },
-    featureDescription: {
-      fontSize: '0.6rem'
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      margin: '3rem 0 2rem'
     },
-    divider: {
-      width: '10%',
-      background: 'rgb(0, 182, 189)',
-      height: '2px',
-      border: 'none'
+    itemContainer: {
+      flex: '1',
+      minWidth: '20%',
+      display: 'inline-block',
+      padding: '.8rem'
+    },
+    item: {
+      backgroundColor: 'rgba(0,0,0,.25)',
+      padding: '4rem',
+      textAlign: 'center',
+      color: textColor,
+      borderRadius: '2px'
+    },
+    itemText: {
+      margin: '2rem 0 0',
+      fontSize: '1.25rem'
+    },
+    itemIcon: {
+      fontSize: '5rem'
     }
   };
+
+  if (mode === 'TEXT_ON_LEFT') {
+    styles.box.textAlign = 'left';
+  }
+
+  if (mode === 'TEXT_ON_RIGHT') {
+    styles.box.textAlign = 'right';
+  }
+
+  assign(styles.box, contentStyle || {});
+  assign(styles.h1, titleStyle || {});
+  assign(styles.h2, subtitleStyle || {});
+  assign(styles.item, itemStyle || {});
+  assign(styles.itemText, itemTextStyle || {});
+  assign(styles.itemIcon, itemIconStyle || {});
+
+  assign(styles.box, props.contentStyle || {});
+  assign(styles.h1, props.titleStyle || {});
+  assign(styles.h2, props.subtitleStyle || {});
+  assign(styles.item, props.itemStyle || {});
+  assign(styles.itemText, props.itemTextStyle || {});
+  assign(styles.itemIcon, props.itemIconStyle || {});
+
+  return styles;
 
 }
