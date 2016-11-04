@@ -7,10 +7,8 @@ export default function (props) {
 
   let {
 
-    primaryColor,
-    secondaryColor,
-    primaryTextColor,
-    secondaryTextColor,
+    backgroundColor,
+    textColor,
     activeColor,
 
     contentStyle,
@@ -26,16 +24,14 @@ export default function (props) {
   let {
 
     viewport,
-    secondaryBrick,
-    videoOnRight,
-    videoOnBottom
+    mode
 
   } = props;
 
   let styles = {
     box: {
-      background: primaryColor,
-      color: primaryTextColor,
+      background: backgroundColor,
+      color: textColor,
       display: 'flex',
       padding: '7% 0 8%',
       height: 'auto'
@@ -63,7 +59,7 @@ export default function (props) {
     },
     button: {
       display: 'inline-block',
-      color: primaryTextColor,
+      color: textColor,
       background: activeColor,
       padding: '.8rem 2rem',
       margin: '0 1.5rem 0 0',
@@ -72,16 +68,11 @@ export default function (props) {
     }
   };
 
-  if (secondaryBrick) {
-    styles.box.background = secondaryColor;
-    styles.box.color = secondaryTextColor;
-  }
-
-  if (videoOnRight) {
+  if (mode === 'VIDEO_ON_LEFT') {
     styles.box.flexDirection = 'row-reverse';
   }
 
-  if (videoOnBottom) {
+  if (mode === 'VIDEO_ON_BOTTOM') {
     styles.box.flexDirection = 'column';
     styles.box.padding = '0';
     styles.box.textAlign = 'center';
@@ -105,6 +96,14 @@ export default function (props) {
     case 'lg':
     case 'xl': break;
   }
+
+  assign(styles.box, props.contentStyle || {});
+  assign(styles.h1, props.titleStyle || {});
+  assign(styles.h2, props.subtitleStyle || {});
+  assign(styles.video, props.videoStyle || {});
+  assign(styles.button, props.buttonStyle || {});
+  assign(styles.textColumn, props.textColumnStyle || {});
+  assign(styles.videoColumn, props.videoColumnStyle || {});
 
   return styles;
 

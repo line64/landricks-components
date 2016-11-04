@@ -7,17 +7,22 @@ export default function (props) {
 
   let {
 
-    primaryColor,
-    secondaryColor,
-    primaryTextColor,
-    secondaryTextColor,
-    activeColor
+    backgroundColor,
+    textColor,
+    activeColor,
+
+    contentStyle,
+    itemStyle,
+    itemHighlightStyle,
+    logoStyle,
+    brandStyle
 
   } = getBandStyle(theme, props.bandStyle);
 
   let {
 
-    viewport
+    viewport,
+    mode
 
   } = props;
 
@@ -30,8 +35,8 @@ export default function (props) {
       height: 'auto',
     },
     boxContent: {
-      background: 'rgba(0,0,0,0)',
-      color: primaryTextColor,
+      background: backgroundColor || 'rgba(0,0,0,0)',
+      color: textColor,
       padding: '0 5%',
       display: 'flex',
       flexDirection: 'row',
@@ -65,7 +70,7 @@ export default function (props) {
       borderRadius: '2px'
     },
     itemLink: {
-      color: primaryTextColor,
+      color: textColor,
       textDecoration: 'none'
     },
     logo: {
@@ -81,6 +86,22 @@ export default function (props) {
       marginLeft: '10px'
     }
   };
+
+  if (mode === 'FIXED') {
+    styles.box.position = 'fixed';
+  }
+
+  assign(styles.box, contentStyle || {});
+  assign(styles.item, itemStyle || {});
+  assign(styles.itemHighlight, itemHighlightStyle || {});
+  assign(styles.logo, logoStyle || {});
+  assign(styles.brand, brandStyle || {});
+
+  assign(styles.box, props.contentStyle || {});
+  assign(styles.item, props.itemStyle || {});
+  assign(styles.itemHighlight, props.itemHighlightStyle || {});
+  assign(styles.logo, props.logoStyle || {});
+  assign(styles.brand, props.brandStyle || {});
 
   return styles;
 

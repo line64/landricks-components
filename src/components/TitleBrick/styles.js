@@ -7,33 +7,26 @@ export default function (props) {
 
   let {
 
-    primaryColor,
-    secondaryColor,
-    primaryTextColor,
-    secondaryTextColor,
-    activeColor,
+    backgroundColor,
+    textColor,
 
     contentStyle,
     titleStyle,
-    subtitleStyle,
-    imageStyle,
-    buttonStyle
+    subtitleStyle
 
   } = getBandStyle(theme, props.bandStyle);
 
   let {
 
     viewport,
-    textOnLeft,
-    textOnRight,
-    secondaryBrick
+    mode
 
   } = props;
 
   let styles = {
     box: {
-      background: primaryColor,
-      color: primaryTextColor,
+      background: backgroundColor,
+      color: textColor,
       padding: '5%',
       height: 'auto',
       textAlign: 'center'
@@ -51,22 +44,21 @@ export default function (props) {
     }
   };
 
-  if (secondaryBrick) {
-    styles.box.background = secondaryColor;
-    styles.box.color = secondaryTextColor;
-  }
-
-  if (textOnLeft) {
+  if (mode === 'TEXT_ON_LEFT') {
     styles.box.textAlign = 'left';
   }
 
-  if (textOnRight) {
+  if (mode === 'TEXT_ON_RIGHT') {
     styles.box.textAlign = 'right';
   }
 
   assign(styles.box, contentStyle || {});
   assign(styles.h1, titleStyle || {});
   assign(styles.h2, subtitleStyle || {});
+
+  assign(styles.box, props.contentStyle || {});
+  assign(styles.h1, props.titleStyle || {});
+  assign(styles.h2, props.subtitleStyle || {});
 
   return styles;
 

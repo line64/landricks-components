@@ -5,10 +5,8 @@ export const DEFAULT_THEME = {
   defaultFontFamily: "'Open Sans', sans-serif",
   defaultFontSize: '60%',
   bandStyleDefault: {
-    primaryColor: '#4051B5',
-    primaryTextColor: '#FFFFFF',
-    secondaryColor: '#FAFAFA',
-    secondaryTextColor: '#747474',
+    backgroundColor: '#4051B5',
+    textColor: '#FFFFFF',
     activeColor: '#E91C63'
   }
 };
