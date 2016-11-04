@@ -8,7 +8,8 @@ function renderItems(s, items) {
     return (
       <div style={ s.itemContainer }>
         <div style={ s.item } key={ index }>
-          <FontAwesome name={ item.icon } style={ s.itemIcon } />
+          { item.icon ? <FontAwesome name={ item.icon } style={ s.itemIcon } /> : null }
+          { item.image ? <img src={ item.image } style={ s.itemImage } /> : null }
           <p style={ s.itemText }>{ item.text }</p>
         </div>
       </div>

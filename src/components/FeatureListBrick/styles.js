@@ -15,7 +15,8 @@ export default function (props) {
     subtitleStyle,
     itemStyle,
     itemTextStyle,
-    itemIconStyle
+    itemIconStyle,
+    itemImageStyle
 
   } = getBandStyle(theme, props.bandStyle);
 
@@ -70,6 +71,11 @@ export default function (props) {
     },
     itemIcon: {
       fontSize: '5rem'
+    },
+    itemImage: {
+      height: '8rem',
+      width: 'auto',
+      pointerEvents: 'none'
     }
   };
 
@@ -87,6 +93,7 @@ export default function (props) {
   assign(styles.item, itemStyle || {});
   assign(styles.itemText, itemTextStyle || {});
   assign(styles.itemIcon, itemIconStyle || {});
+  assign(styles.itemImage, itemImageStyle || {});
 
   assign(styles.box, props.contentStyle || {});
   assign(styles.h1, props.titleStyle || {});
@@ -94,6 +101,7 @@ export default function (props) {
   assign(styles.item, props.itemStyle || {});
   assign(styles.itemText, props.itemTextStyle || {});
   assign(styles.itemIcon, props.itemIconStyle || {});
+  assign(styles.itemImage, props.itemImageStyle || {});
 
   return styles;
 
