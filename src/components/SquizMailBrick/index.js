@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from './styles';
-import { ContextPropagator, CallToAction } from '../../';
-import FontAwesome from 'react-fontawesome';
 
+let inputValue = null;
 
-function renderInput(props, s) {
-  if (!props.placeholder) return null;
-  return (
-    <div>
-      <input style={ s.inputField } placeholder={ props.placeholder } />
-    </div>
-  )
+function handleSubmit(onClick) {
+  return (event) => {
+    event.preventDefault();
+    onClick({ email: inputValue });
+  }
+}
+
+function handleInputChange(event) {
+  inputValue = event.target.value;
 }
 
 export default (props) => {
@@ -18,13 +19,25 @@ export default (props) => {
   let s = styles(props);
 
   return (
+
     <section style={ s.box }>
+
       <h1 style={ s.h1 }>{ props.title }</h1>
-      <ContextPropagator theme={ props.theme }>
-        { renderInput(props, s) }
-      </ContextPropagator>
+
       <h2 style={ s.h2 }>{ props.subtitle }</h2>
+
+      <form style={ s.form } onSubmit={ handleSubmit(props.onSubmit) }>
+
+        <input type="email" style={ s.input } placeholder={ props.placeholder } required={ true } onChange={ handleInputChange }></input>
+
+        <button type="submit" style={ s.button }>{ props.buttonLabel }</button>
+
+      </form>
+
+      <small style={ s.small }>{ props.smallText }</small>
+
     </section>
+
   );
 
 }

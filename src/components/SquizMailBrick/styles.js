@@ -1,48 +1,99 @@
 import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
+import { assign } from 'lodash';
 
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
-  let { background, textColor } = getBandStyle(theme, props.bandStyle)
 
-  return {
+  let {
+
+    backgroundColor,
+    textColor,
+    activeColor,
+
+    contentStyle,
+    titleStyle,
+    subtitleStyle,
+    buttonStyle,
+    inputStyle,
+    smallStyle
+
+  } = getBandStyle(theme, props.bandStyle);
+
+  let {
+
+    viewport,
+    mode
+
+  } = props;
+
+  let styles = {
     box: {
-      backgroundImage: 'url('+props.backgroundImage+')',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
+      background: backgroundColor,
       color: textColor,
-      padding: '10%',
+      padding: '5%',
       textAlign: 'center'
     },
     h1: {
-      fontSize: '2.5rem',
-      fontWeight: 'bolder',
-      margin: 0,
-      marginBottom: '4%'
+      fontSize: '3rem',
+      fontWeight: 'bold',
+      marginBottom: '1.5rem'
     },
     h2: {
-      fontSize: '1.1rem',
+      fontSize: '1rem',
       fontWeight: 'normal',
-      margin: 0,
-      marginTop: '4%',
-      marginBottom: '3%'
+      marginBottom: '4rem'
     },
-    inputField: {
-      fontSize: '1.1rem',
-      width: '30%',
-      borderRadius: '100px',
-      border: '1px solid #FFF',
-      background: 'none',
-      outline: 'none',
-      padding: '.5rem 1.5rem',
-      color: '#EEE'
+    form: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      display: 'block',
+      padding: '0 5%',
+      marginBottom: '10px'
     },
-    icon: {
-      fontSize: 35,
-      marginLeft: 15,
-      position: 'relative',
-      top: 5
+    input: {
+      flex: '1',
+      minWidth: '45%',
+      fontSize: '1.2rem',
+      background: 'rgba(0,0,0,0)',
+      border: `2px solid ${ textColor || '#FFF' }`,
+      color: textColor || '#FFF',
+      padding: '.3rem .4rem .25rem'
+    },
+    button: {
+      flex: '1',
+      minWidth: '10%',
+      fontSize: '1.2rem',
+      background: activeColor,
+      border: `2px solid rgba(0,0,0,0)`,
+      color: textColor,
+      padding: '.3rem .8rem .25rem',
+      cursor: 'pointer'
     }
   };
+
+  if (mode === 'TEXT_ON_LEFT') {
+    styles.box.textAlign = 'left';
+  }
+
+  if (mode === 'TEXT_ON_RIGHT') {
+    styles.box.textAlign = 'right';
+  }
+
+  assign(styles.box, contentStyle || {});
+  assign(styles.h1, titleStyle || {});
+  assign(styles.h2, subtitleStyle || {});
+  assign(styles.button, buttonStyle || {});
+  assign(styles.input, inputStyle || {});
+  assign(styles.small, smallStyle || {});
+
+  assign(styles.box, props.contentStyle || {});
+  assign(styles.h1, props.titleStyle || {});
+  assign(styles.h2, props.subtitleStyle || {});
+  assign(styles.button, props.buttonStyle || {});
+  assign(styles.input, props.inputStyle || {});
+  assign(styles.small, props.smallStyle || {});
+
+  return styles;
 
 }
