@@ -1,5 +1,4 @@
 import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
-import { assign } from 'lodash';
 
 export default function (props) {
 

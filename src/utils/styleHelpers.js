@@ -1,4 +1,3 @@
-import { assign } from 'lodash';
 
 export const DEFAULT_THEME = {
   canvasBgColor: '#FAFAFA',
@@ -16,5 +15,8 @@ export function safeThemeFromProps(props) {
 }
 
 export function getBandStyle(theme, bandStyleKey) {
-  return assign({}, DEFAULT_THEME.bandStyleDefault, theme[`bandStyle${bandStyleKey}`] || {});
+  return {
+    ...DEFAULT_THEME.bandStyleDefault,
+    ...theme[`bandStyle${bandStyleKey}`]
+  };
 }
