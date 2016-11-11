@@ -54,7 +54,7 @@ Add these components as children of the LandingCanvas:
     <FeatureListBrick
       title="My App Features"
       subtitle="Batteries not included"
-      features={[
+      items={[
         { key: 1, title: 'virtual reality', description: 'fancy tech titles to get your attention'},
         { key: 2, title: 'big data', description: 'fancy tech titles to get your attention'},
         { key: 3, title: 'internet of things', description: 'fancy tech titles to get your attention'}
@@ -63,7 +63,7 @@ Add these components as children of the LandingCanvas:
     <FeatureListBrick
       title="More Features"
       subtitle="Just to show a different band style"
-      features={[
+      items={[
         { key: 1, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
         { key: 2, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
         { key: 3, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
@@ -77,8 +77,7 @@ Add these components as children of the LandingCanvas:
       subtitle="Now that you've read everything you need to know, make my conversion funnel happy and click this CTA"
     />
     <FooterBrick
-      productName="Product Name"
-      logo={ require('./images/ProductImg.png') }
+      productName="Best Product Event"
       copyRight={ true }
       social={[
         { key: 1, icon: 'facebook', link: 'http://wwww.facebook.com' },
