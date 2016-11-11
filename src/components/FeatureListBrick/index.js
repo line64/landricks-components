@@ -4,6 +4,9 @@ import FontAwesome from 'react-fontawesome';
 import { ContextPropagator, CallToAction } from '../../';
 
 function renderItems(s, items) {
+
+  if (!items) return null;
+
   return items.map((item, index) => {
     return (
       <div style={ s.itemContainer }>
@@ -15,6 +18,7 @@ function renderItems(s, items) {
       </div>
     );
   });
+  
 }
 
 export default (props) => {
