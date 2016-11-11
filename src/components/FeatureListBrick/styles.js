@@ -1,15 +1,12 @@
 import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
-import { assign } from 'lodash';
 
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
 
   let {
-
     backgroundColor,
     textColor,
-
     contentStyle,
     titleStyle,
     subtitleStyle,
@@ -17,14 +14,11 @@ export default function (props) {
     itemTextStyle,
     itemIconStyle,
     itemImageStyle
-
   } = getBandStyle(theme, props.bandStyle);
 
   let {
-
     viewport,
     mode
-
   } = props;
 
   let styles = {
@@ -33,18 +27,24 @@ export default function (props) {
       color: textColor,
       padding: '5%',
       height: 'auto',
-      textAlign: 'center'
+      textAlign: 'center',
+      ...contentStyle,
+      ...props.contentStyle
     },
     h1: {
       fontSize: '2.25rem',
       fontWeight: 'bold',
-      margin: '0 0 1rem'
+      margin: '0 0 1rem',
+      ...titleStyle,
+      ...props.titleStyle
     },
     h2: {
       fontSize: '1rem',
       fontWeight: 'normal',
       lineHeight: '1.5rem',
-      margin: '0'
+      margin: '0',
+      ...subtitleStyle,
+      ...props.subtitleStyle
     },
     container: {
       flexDirection: 'row',
@@ -63,19 +63,27 @@ export default function (props) {
       padding: '4rem',
       textAlign: 'center',
       color: textColor,
-      borderRadius: '2px'
+      borderRadius: '2px',
+      ...itemStyle,
+      ...props.itemStyle
     },
     itemText: {
       margin: '2rem 0 0',
-      fontSize: '1.25rem'
+      fontSize: '1.25rem',
+      ...itemTextStyle,
+      ...props.itemTextStyle
     },
     itemIcon: {
-      fontSize: '5rem'
+      fontSize: '5rem',
+      ...itemIconStyle,
+      ...props.itemIconStyle
     },
     itemImage: {
       height: '8rem',
       width: 'auto',
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+      ...itemImageStyle,
+      ...props.itemImageStyle
     }
   };
 
@@ -86,22 +94,6 @@ export default function (props) {
   if (mode === 'TEXT_ON_RIGHT') {
     styles.box.textAlign = 'right';
   }
-
-  assign(styles.box, contentStyle || {});
-  assign(styles.h1, titleStyle || {});
-  assign(styles.h2, subtitleStyle || {});
-  assign(styles.item, itemStyle || {});
-  assign(styles.itemText, itemTextStyle || {});
-  assign(styles.itemIcon, itemIconStyle || {});
-  assign(styles.itemImage, itemImageStyle || {});
-
-  assign(styles.box, props.contentStyle || {});
-  assign(styles.h1, props.titleStyle || {});
-  assign(styles.h2, props.subtitleStyle || {});
-  assign(styles.item, props.itemStyle || {});
-  assign(styles.itemText, props.itemTextStyle || {});
-  assign(styles.itemIcon, props.itemIconStyle || {});
-  assign(styles.itemImage, props.itemImageStyle || {});
 
   return styles;
 

@@ -6,11 +6,9 @@ export default function (props) {
   let theme = safeThemeFromProps(props);
 
   let {
-
     backgroundColor,
     textColor,
     activeColor,
-
     contentStyle,
     titleStyle,
     subtitleStyle,
@@ -18,14 +16,11 @@ export default function (props) {
     buttonStyle,
     textColumnStyle,
     imageColumnStyle
-
   } = getBandStyle(theme, props.bandStyle);
 
   let {
-
     viewport,
     mode
-
   } = props;
 
   let styles = {
@@ -34,7 +29,9 @@ export default function (props) {
       color: textColor,
       display: 'flex',
       padding: '7% 0 8%',
-      height: 'auto'
+      height: 'auto',
+      ...contentStyle,
+      ...props.contentStyle
     },
     imageColumn: {
       flex: '1',
@@ -46,15 +43,21 @@ export default function (props) {
     },
     h1: {
       fontSize: '3rem',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      ...titleStyle,
+      ...props.titleStyle
     },
     h2: {
       fontSize: '1rem',
       fontWeight: 'normal',
-      marginBottom: '2rem'
+      marginBottom: '2rem',
+      ...subtitleStyle,
+      ...props.subtitleStyle
     },
     image: {
-      maxHeight: '50vh'
+      maxHeight: '50vh',
+      ...imageStyle,
+      ...props.imageStyle
     },
     button: {
       display: 'inline-block',
@@ -63,7 +66,17 @@ export default function (props) {
       padding: '.8rem 2rem',
       margin: '0 1.5rem 0 0',
       textDecoration: 'none',
-      fontSize: '1rem'
+      fontSize: '1rem',
+      ...buttonStyle,
+      ...props.buttonStyle
+    },
+    textColumn: {
+      ...textColumnStyle,
+      ...props.textColumnStyle
+    },
+    imageColumn: {
+      ...imageColumnStyle,
+      ...props.imageColumnStyle
     }
   };
 
@@ -79,14 +92,6 @@ export default function (props) {
     styles.imageColumn.padding = '1% 5% 5%';
   }
 
-  assign(styles.box, contentStyle || {});
-  assign(styles.h1, titleStyle || {});
-  assign(styles.h2, subtitleStyle || {});
-  assign(styles.image, imageStyle || {});
-  assign(styles.button, buttonStyle || {});
-  assign(styles.textColumn, textColumnStyle || {});
-  assign(styles.imageColumn, imageColumnStyle || {});
-
   switch (viewport) {
     case 'xs':
     case 'sm':
@@ -95,14 +100,6 @@ export default function (props) {
     case 'lg':
     case 'xl': break;
   }
-
-  assign(styles.box, props.contentStyle || {});
-  assign(styles.h1, props.titleStyle || {});
-  assign(styles.h2, props.subtitleStyle || {});
-  assign(styles.image, props.imageStyle || {});
-  assign(styles.button, props.buttonStyle || {});
-  assign(styles.textColumn, props.textColumnStyle || {});
-  assign(styles.imageColumn, props.imageColumnStyle || {});
 
   return styles;
 

@@ -3,8 +3,12 @@ import { safeThemeFromProps, getBandStyle, lightenColor } from '../../utils/styl
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
-  let { background, textColor, primaryColor } = getBandStyle(theme, props.bandStyle)
 
+  let {
+    background,
+    textColor,
+    primaryColor
+  } = getBandStyle(theme, props.bandStyle)
 
   return {
     box: {

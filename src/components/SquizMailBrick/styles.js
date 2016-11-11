@@ -6,25 +6,20 @@ export default function (props) {
   let theme = safeThemeFromProps(props);
 
   let {
-
     backgroundColor,
     textColor,
     activeColor,
-
     contentStyle,
     titleStyle,
     subtitleStyle,
     buttonStyle,
     inputStyle,
     smallStyle
-
   } = getBandStyle(theme, props.bandStyle);
 
   let {
-
     viewport,
     mode
-
   } = props;
 
   let styles = {
@@ -32,17 +27,23 @@ export default function (props) {
       background: backgroundColor,
       color: textColor,
       padding: '5%',
-      textAlign: 'center'
+      textAlign: 'center',
+      ...contentStyle,
+      ...props.contentStyle
     },
     h1: {
       fontSize: '3rem',
       fontWeight: 'bold',
-      marginBottom: '1.5rem'
+      marginBottom: '1.5rem',
+      ...titleStyle,
+      ...props.titleStyle
     },
     h2: {
       fontSize: '1rem',
       fontWeight: 'normal',
-      marginBottom: '4rem'
+      marginBottom: '4rem',
+      ...subtitleStyle,
+      ...props.subtitleStyle
     },
     form: {
       flexDirection: 'row',
@@ -58,7 +59,9 @@ export default function (props) {
       background: 'rgba(0,0,0,0)',
       border: `2px solid ${ textColor || '#FFF' }`,
       color: textColor || '#FFF',
-      padding: '.3rem .4rem .25rem'
+      padding: '.3rem .4rem .25rem',
+      ...inputStyle,
+      ...props.inputStyle
     },
     button: {
       flex: '1',
@@ -68,7 +71,13 @@ export default function (props) {
       border: `2px solid rgba(0,0,0,0)`,
       color: textColor,
       padding: '.3rem .8rem .25rem',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ...buttonStyle,
+      ...props.buttonStyle
+    },
+    small: {
+      ...smallStyle,
+      ...props.smallStyle
     }
   };
 
@@ -79,20 +88,6 @@ export default function (props) {
   if (mode === 'TEXT_ON_RIGHT') {
     styles.box.textAlign = 'right';
   }
-
-  assign(styles.box, contentStyle || {});
-  assign(styles.h1, titleStyle || {});
-  assign(styles.h2, subtitleStyle || {});
-  assign(styles.button, buttonStyle || {});
-  assign(styles.input, inputStyle || {});
-  assign(styles.small, smallStyle || {});
-
-  assign(styles.box, props.contentStyle || {});
-  assign(styles.h1, props.titleStyle || {});
-  assign(styles.h2, props.subtitleStyle || {});
-  assign(styles.button, props.buttonStyle || {});
-  assign(styles.input, props.inputStyle || {});
-  assign(styles.small, props.smallStyle || {});
 
   return styles;
 

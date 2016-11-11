@@ -1,29 +1,23 @@
 import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
-import { assign } from 'lodash';
 
 export default function (props) {
 
   let theme = safeThemeFromProps(props);
 
   let {
-
     backgroundColor,
     textColor,
     activeColor,
-
     contentStyle,
     itemStyle,
     itemHighlightStyle,
     logoStyle,
     brandStyle
-
   } = getBandStyle(theme, props.bandStyle);
 
   let {
-
     viewport,
     mode
-
   } = props;
 
   let styles = {
@@ -33,7 +27,9 @@ export default function (props) {
       left: 0,
       width: '100%',
       height: 'auto',
-      zIndex: 1000
+      zIndex: 1000,
+      ...contentStyle,
+      ...props.contentStyle
     },
     boxContent: {
       background: backgroundColor || 'rgba(0,0,0,0)',
@@ -60,7 +56,9 @@ export default function (props) {
     item: {
       display: 'inline-block',
       padding: '15px',
-      fontSize: '16px'
+      fontSize: '16px',
+      ...itemStyle,
+      ...props.itemStyle
     },
     itemHighlight: {
       display: 'inline-block',
@@ -68,7 +66,9 @@ export default function (props) {
       fontSize: '16px',
       margin: '8px',
       background: activeColor,
-      borderRadius: '2px'
+      borderRadius: '2px',
+      ...itemHighlightStyle,
+      ...props.itemHighlightStyle
     },
     itemLink: {
       color: textColor,
@@ -77,32 +77,24 @@ export default function (props) {
     logo: {
       height: '50px',
       width: 'auto',
-      float: 'left'
+      float: 'left',
+      ...logoStyle,
+      ...props.logoStyle
     },
     brand: {
       fontSize: '18px',
       fontWeight: 'bold',
       lineHeight: '50px',
       display: 'inline-block',
-      marginLeft: '10px'
+      marginLeft: '10px',
+      ...brandStyle,
+      ...props.brandStyle
     }
   };
 
   if (mode === 'FIXED') {
     styles.box.position = 'fixed';
   }
-
-  assign(styles.box, contentStyle || {});
-  assign(styles.item, itemStyle || {});
-  assign(styles.itemHighlight, itemHighlightStyle || {});
-  assign(styles.logo, logoStyle || {});
-  assign(styles.brand, brandStyle || {});
-
-  assign(styles.box, props.contentStyle || {});
-  assign(styles.item, props.itemStyle || {});
-  assign(styles.itemHighlight, props.itemHighlightStyle || {});
-  assign(styles.logo, props.logoStyle || {});
-  assign(styles.brand, props.brandStyle || {});
 
   return styles;
 
