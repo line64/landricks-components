@@ -27,9 +27,9 @@ Add the following import statement to src/App.js
 
     import {
       LandingCanvas,
-      BannerTitleBrick,
-      AppTitleBrick,
-      FeatureListBrick
+      TitleBrick,
+      FeatureListBrick,
+      FooterBrick
     } from 'landricks-components';
 
 **Add a LandingCanvas component**
@@ -47,7 +47,7 @@ Replace the current render method of src/App.js for this one:
 
 Add these components as children of the LandingCanvas:
 
-    <AppTitleBrick
+    <TitleBrick
       title="The best mobile app of all times!"
       subtitle="An app so revolutionary, that it will blow your mind away and make you forget about all other apps in your phone."
     />
@@ -72,15 +72,14 @@ Add these components as children of the LandingCanvas:
         { key: 6, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
       ]}
     />
-    <BannerTitleBrick
+    <TitleBrick
       title="It's time to click my button!"
       subtitle="Now that you've read everything you need to know, make my conversion funnel happy and click this CTA"
     />
     <FooterBrick
-      bandStyle="Footer"
       productName="Product Name"
       logo={ require('./images/ProductImg.png') }
-      copyRight={ true } 
+      copyRight={ true }
       social={[
         { key: 1, icon: 'facebook', link: 'http://wwww.facebook.com' },
         { key: 2, icon: 'instagram', link: 'http://wwww.instagram.com' },
