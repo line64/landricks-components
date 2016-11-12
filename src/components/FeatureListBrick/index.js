@@ -13,12 +13,13 @@ function renderItems(s, items) {
         <div style={ s.item } key={ index }>
           { item.icon ? <FontAwesome name={ item.icon } style={ s.itemIcon } /> : null }
           { item.image ? <img src={ item.image } style={ s.itemImage } /> : null }
-          <p style={ s.itemText }>{ item.text }</p>
+          <h5 style={ s.itemText }>{ item.title }</h5>
+          <p>{ item.description }</p>
         </div>
       </div>
     );
   });
-  
+
 }
 
 export default (props) => {
