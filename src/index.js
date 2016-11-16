@@ -1,25 +1,33 @@
 import ContextPropagator from './components/ContextPropagator';
 import LandingCanvas from './components/LandingCanvas';
 import BigVideoBrick from './components/BigVideoBrick';
-import FeatureListBrick from './components/FeatureListBrick';
+import EnumerationBrick from './components/EnumerationBrick';
 import FooterBrick from './components/FooterBrick';
-import SquizMailBrick from './components/SquizMailBrick';
-import TitleBrick from './components/TitleBrick';
-import CustomBrick from './components/CustomBrick';
+import EmailSqueezeBrick from './components/EmailSqueezeBrick';
+import StrongMessageBrick from './components/StrongMessageBrick';
+import GenericBrick from './components/GenericBrick';
+import DoubleContentBrick from './components/DoubleContentBrick';
 import BigImageBrick from './components/BigImageBrick';
 import NavigationBrick from './components/NavigationBrick';
+import CallToAction from './components/CallToAction';
+import FeatureItem from './components/FeatureItem';
+import PlaceHolder from './components/PlaceHolder';
 import styleHelpers from './utils/styleHelpers';
 
 export {
   ContextPropagator,
   LandingCanvas,
   BigVideoBrick,
-  FeatureListBrick,
+  EnumerationBrick,
   FooterBrick,
-  SquizMailBrick,
-  TitleBrick,
-  CustomBrick,
+  EmailSqueezeBrick,
+  StrongMessageBrick,
+  GenericBrick,
+  DoubleContentBrick,
   BigImageBrick,
   NavigationBrick,
+  CallToAction,
+  FeatureItem,
+  PlaceHolder,
   styleHelpers
 };

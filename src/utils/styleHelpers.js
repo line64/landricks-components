@@ -1,22 +1,12 @@
 
 export const DEFAULT_THEME = {
-  canvasBgColor: '#FAFAFA',
-  defaultFontFamily: "'Open Sans', sans-serif",
-  defaultFontSize: '60%',
-  bandStyleDefault: {
-    backgroundColor: '#4051B5',
-    textColor: '#FFFFFF',
-    activeColor: '#E91C63'
-  }
+  fontFamily: 'Lato',
+  baseFontSize: '20px',
+  backgroundColor: '#4051B5',
+  primaryColor: '#E91C63',
+  textColor: '#FFFFFF'
 };
 
 export function safeThemeFromProps(props) {
   return props.theme || DEFAULT_THEME;
-}
-
-export function getBandStyle(theme, bandStyleKey) {
-  return {
-    ...DEFAULT_THEME.bandStyleDefault,
-    ...theme[`bandStyle${bandStyleKey}`]
-  };
 }

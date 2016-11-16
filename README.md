@@ -7,6 +7,9 @@ Have you ever built a product landing page? They are all the same, they have a b
 ## Goal
 Landricks provide a set of opinionated React DOM-components that can be laid out as bricks, one on top of the other, to easily obtain a fully formatted landing page. The props of each component are used to set the actual content (text, images, urls) presented to the user. Visual design can be defined by providing a "theme", which is a set of high-level properties which are used by each component to build their internal styles.
 
+## Demo
+The simplest way to get a glance of the components is to use "react storybook". You can either clone the repo and run `npm run storybook`, or you can browse the online Storybook Workspace which renders directly from the master branch code.
+
 ## Getting Started
 
 **Create a React web app**
@@ -27,10 +30,54 @@ Add the following import statement to src/App.js
 
     import {
       LandingCanvas,
-      TitleBrick,
-      FeatureListBrick,
-      FooterBrick
+      ContextPropagator,
+      GenericBrick,
+      DoubleContentBrick,
+      StrongMessageBrick,
+      EnumerationBrick,
+      EmailSqueezeBrick,
+      FooterBrick,
+      CallToAction,
+      FeatureItem,
+      PlaceHolder
     } from 'landricks-components';
+
+**Define themes to be used by different bricks**
+
+Add the following constants to your src/App.js
+
+    const BASE_THEME = {
+      fontFamily: 'Lato',
+      baseFontSize: '18px'
+    }
+
+    const HEADER_BAND_THEME = {
+      ...BASE_THEME,
+      baseFontSize: '18px',
+      backgroundColor: '#71A2B6',
+      textColor: '#FFFFFF',
+      primaryColor: '#FFFFFF',
+      primaryContrastColor: '#71A2B6',
+      objectDesign: 'square-solid'
+    }
+
+    const HEAVY_BAND_THEME = {
+      ...BASE_THEME,
+      backgroundColor: '#29D9C2',
+      textColor: '#FFFFFF',
+      primaryColor: '#FFFFFF',
+      primaryContrastColor: '#000000',
+      secondaryColor: '#C99DA3',
+      objectDesign: 'square-outline'
+    };
+
+    const LIGHT_BAND_THEME = {
+      ...BASE_THEME,
+      backgroundColor: '#FAFAFA',
+      textColor: '#888888',
+      primaryColor: '#996888',
+      secondaryColor: '#C99DA3'
+    };
 
 **Add a LandingCanvas component**
 
@@ -47,43 +94,65 @@ Replace the current render method of src/App.js for this one:
 
 Add these components as children of the LandingCanvas:
 
-    <TitleBrick
-      title="The best mobile app of all times!"
-      subtitle="An app so revolutionary, that it will blow your mind away and make you forget about all other apps in your phone."
+    <StrongMessageBrick
+      theme={ HEADER_BAND_THEME }
+      messageLevel1="A beautiful message, but not so long"
+      messageLevel2="A related but not so important concept, that usually is a little bit longer than the previous"
+      CTAs={ <CallToAction label="sign up" /> }
     />
-    <FeatureListBrick
-      title="My App Features"
-      subtitle="Batteries not included"
-      items={[
-        { key: 1, title: 'virtual reality', description: 'fancy tech titles to get your attention'},
-        { key: 2, title: 'big data', description: 'fancy tech titles to get your attention'},
-        { key: 3, title: 'internet of things', description: 'fancy tech titles to get your attention'}
-      ]}
-    />
-    <FeatureListBrick
-      title="More Features"
-      subtitle="Just to show a different band style"
-      items={[
-        { key: 1, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-        { key: 2, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-        { key: 3, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-        { key: 4, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-        { key: 5, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-        { key: 6, title: 'no more ideas', description: 'enough dummy text, using ctrl+c from this point on'},
-      ]}
-    />
-    <TitleBrick
-      title="It's time to click my button!"
-      subtitle="Now that you've read everything you need to know, make my conversion funnel happy and click this CTA"
-    />
-    <FooterBrick
-      productName="Best Product Event"
-      copyRight={ true }
-      social={[
-        { key: 1, icon: 'facebook', link: 'http://wwww.facebook.com' },
-        { key: 2, icon: 'instagram', link: 'http://wwww.instagram.com' },
-        { key: 3, icon: 'twitter', link: 'http://wwww.twitter.com' }
-      ]}
+    <DoubleContentBrick theme={ HEAVY_BAND_THEME } hasHeader={ false }>
+      <ContextPropagator>
+        <h1>Our product highlight</h1>
+        <p>you wont find a better product anywhere in the universe.</p>
+        <CallToAction label="buy" /><CallToAction label="learn more" />
+      </ContextPropagator>
+      <PlaceHolder />
+    </DoubleContentBrick>
+    <GenericBrick
+      theme={ LIGHT_BAND_THEME }
+      title="Yes, we can!"
+      subtitle="if you think you can do it"
+      contentStyle={ {textAlign: 'center'} }>
+      <PlaceHolder />
+    </GenericBrick>
+    <EnumerationBrick
+      theme={ HEAVY_BAND_THEME }
+      title="Awesome features"
+      subtitle="You can add any number of them">
+      <FeatureItem
+        icon="rocket"
+        title="Feature 1"
+        description="bla bla bla bla bla"
+      />
+      <FeatureItem
+        icon="rocket"
+        title="Feature 2"
+        description="bla bla bla bla bla"
+      />
+      <FeatureItem
+        icon="rocket"
+        title="Feature 3"
+        description="bla bla bla bla bla"
+      />
+    </EnumerationBrick>
+    <DoubleContentBrick theme={ LIGHT_BAND_THEME } hasHeader={ false }>
+      <PlaceHolder useLoremIpsum={ true } />
+      <PlaceHolder label="image placeholder" />
+    </DoubleContentBrick>
+    <DoubleContentBrick theme={ LIGHT_BAND_THEME } hasHeader={ false }>
+      <PlaceHolder label="image placeholder" />
+      <PlaceHolder useLoremIpsum={ true } />
+    </DoubleContentBrick>
+    <DoubleContentBrick theme={ LIGHT_BAND_THEME } hasHeader={ false }>
+      <PlaceHolder useLoremIpsum={ true } />
+      <PlaceHolder label="image placeholder" />
+    </DoubleContentBrick>
+    <EmailSqueezeBrick
+      title="Join our Newsletter"
+      subtitle="To get updates about what we want you to know about"
+      theme={ HEAVY_BAND_THEME }
+      buttonLabel="Join"
+      placeholder="Enter your email"
     />
 
 **Run your app**

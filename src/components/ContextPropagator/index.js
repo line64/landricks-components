@@ -11,10 +11,22 @@ function getViewportData() {
 
 function renderThemedChildren(props) {
   return React.Children.map(props.children, (child) => {
+    if (!child) return null;
     return React.cloneElement(child, { theme: props.theme, viewport: getViewportData() });
   });
 }
 
-export default (props) => {
-  return (<div>{renderThemedChildren(props)}</div>);
+const ContextPropagator = (props) => {
+  return (
+    <div style={props.wrapperStyle}>
+      { renderThemedChildren(props) }
+    </div>
+  );
 }
+
+ContextPropagator.propTypes = {
+  wrapperStyle: React.PropTypes.object,
+  children: React.PropTypes.arrayOf(React.PropTypes.element)
+};
+
+export default ContextPropagator;

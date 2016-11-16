@@ -2,13 +2,17 @@ import { safeThemeFromProps } from '../../utils/styleHelpers';
 
 export default function(props) {
 
-  let theme = safeThemeFromProps(props);
+  let {
+    backgroundColor,
+    fontFamily,
+    baseFontSize
+  } = safeThemeFromProps(props);
 
   return {
-    box: {
-      backgroundColor: theme.canvasBgColor,
-      fontFamily: theme.defaultFontFamily,
-      fontSize: theme.defaultFontSize
+    wrapper: {
+      backgroundColor,
+      fontFamily,
+      fontSize: baseFontSize
     }
   };
 

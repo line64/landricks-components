@@ -1,8 +1,6 @@
-import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
+import { safeThemeFromProps } from '../../utils/styleHelpers';
 
 export default function (props) {
-
-  let theme = safeThemeFromProps(props);
 
   let {
     backgroundColor,
@@ -14,7 +12,7 @@ export default function (props) {
     buttonStyle,
     inputStyle,
     smallStyle
-  } = getBandStyle(theme, props.bandStyle);
+  } = safeThemeFromProps(props);
 
   let {
     viewport,

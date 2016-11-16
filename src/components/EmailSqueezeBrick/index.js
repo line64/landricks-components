@@ -14,7 +14,7 @@ function handleInputChange(event) {
   inputValue = event.target.value;
 }
 
-export default (props) => {
+const EmailSqueezeBrick = (props) => {
 
   let s = styles(props);
 
@@ -41,3 +41,10 @@ export default (props) => {
   );
 
 }
+
+EmailSqueezeBrick.propTypes = {
+  buttonLabel: React.PropTypes.string,
+  placeholder: React.PropTypes.string
+};
+
+export default EmailSqueezeBrick;
