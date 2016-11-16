@@ -8,7 +8,7 @@ Have you ever built a product landing page? They are all the same, they have a b
 Landricks provide a set of opinionated React DOM-components that can be laid out as bricks, one on top of the other, to easily obtain a fully formatted landing page. The props of each component are used to set the actual content (text, images, urls) presented to the user. Visual design can be defined by providing a "theme", which is a set of high-level properties which are used by each component to build their internal styles.
 
 ## Demo
-The simplest way to get a glance of the components is to use "react storybook". You can either clone the repo and run `npm run storybook`, or you can browse the online Storybook Workspace which renders directly from the master branch code.
+The simplest way to get a glance of the components is to use "react storybook". You can either clone the repo and run `npm run storybook`, or you can browse the online [Storybook Workspace](https://99414fdf-a9e6-4eed-85ce-422542fe1672.sbook.io) which renders directly from the master branch code.
 
 ## Getting Started
 
