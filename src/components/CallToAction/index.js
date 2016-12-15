@@ -53,7 +53,7 @@ class CallToAction extends Component {
     }
 
     return (
-      <a href={ props.href } style={ style.wrapper }>
+      <a href={ props.href } target={ props.target | '_self' } style={ style.wrapper }>
         { this.renderIcon(style, props) }&nbsp;{ this.renderLabel(style, props) }
       </a>
     );
@@ -76,6 +76,7 @@ class CallToAction extends Component {
 
 CallToAction.propTypes = {
   href: React.PropTypes.string,
+  target: React.PropTypes.string,
   icon: React.PropTypes.string,
   label: React.PropTypes.string,
   onClick: React.PropTypes.func

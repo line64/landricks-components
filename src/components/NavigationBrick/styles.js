@@ -1,8 +1,6 @@
-import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
+import { safeThemeFromProps} from '../../utils/styleHelpers';
 
 export default function (props) {
-
-  let theme = safeThemeFromProps(props);
 
   let {
     backgroundColor,
@@ -13,7 +11,7 @@ export default function (props) {
     itemHighlightStyle,
     logoStyle,
     brandStyle
-  } = getBandStyle(theme, props.bandStyle);
+  } = safeThemeFromProps(props);
 
   let {
     viewport,
@@ -27,9 +25,7 @@ export default function (props) {
       left: 0,
       width: '100%',
       height: 'auto',
-      zIndex: 1000,
-      ...contentStyle,
-      ...props.contentStyle
+      zIndex: 1000
     },
     boxContent: {
       background: backgroundColor || 'rgba(0,0,0,0)',
@@ -38,7 +34,9 @@ export default function (props) {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      ...contentStyle,
+      ...props.contentStyle
     },
     logoContainer: {
       margin: 0,
