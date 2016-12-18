@@ -26,7 +26,7 @@ const ContextPropagator = (props) => {
 
 ContextPropagator.propTypes = {
   wrapperStyle: React.PropTypes.object,
-  children: React.PropTypes.arrayOf(React.PropTypes.element)
+  children: React.PropTypes.node
 };
 
 export default ContextPropagator;
