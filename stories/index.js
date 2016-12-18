@@ -3,7 +3,7 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 import {
   LandingCanvas,
-  ContextPropagator,
+  ThemePropagator,
   GenericBrick,
   DoubleContentBrick,
   StrongMessageBrick,
@@ -59,11 +59,11 @@ storiesOf('Showcase', module)
         CTAs={ <CallToAction label="sign up" /> }
       />
       <DoubleContentBrick theme={ HEAVY_BAND_THEME } hasHeader={ false }>
-        <ContextPropagator>
+        <ThemePropagator>
           <h1>Our product highlight</h1>
           <p>you wont find a better product anywhere in the universe.</p>
           <CallToAction label="buy" /><CallToAction label="learn more" />
-        </ContextPropagator>
+        </ThemePropagator>
         <PlaceHolder />
       </DoubleContentBrick>
       <GenericBrick
@@ -142,11 +142,11 @@ storiesOf('Layout Bricks', module)
   ), { inline: true })
   .add('Double Content with some info', () => (
     <DoubleContentBrick theme={ HEAVY_BAND_THEME } hasHeader={ false }>
-      <ContextPropagator>
+      <ThemePropagator>
         <h1>Our product highlight</h1>
         <p>you wont find a better product anywhere in the universe.</p>
         <CallToAction label="buy" /><CallToAction label="learn more" />
-      </ContextPropagator>
+      </ThemePropagator>
       <PlaceHolder />
     </DoubleContentBrick>
   ))

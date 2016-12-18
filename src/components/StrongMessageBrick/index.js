@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles';
-import { ContextPropagator, GenericBrick } from '../../';
+import { ThemePropagator, GenericBrick } from '../../';
 
 class StrongMessageBrick extends Component {
 
@@ -42,7 +42,7 @@ class StrongMessageBrick extends Component {
       return null;
     }
 
-    return (<ContextPropagator>{props.CTAs}</ContextPropagator>);
+    return (<ThemePropagator>{props.CTAs}</ThemePropagator>);
 
   }
 

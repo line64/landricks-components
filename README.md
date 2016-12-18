@@ -31,7 +31,7 @@ Add the following import statement to src/App.js
 ```
 import {
   LandingCanvas,
-  ContextPropagator,
+  ThemePropagator,
   GenericBrick,
   DoubleContentBrick,
   StrongMessageBrick,
@@ -108,11 +108,11 @@ Add these components as children of the LandingCanvas:
   CTAs={ <CallToAction label="sign up" /> }
 />
 <DoubleContentBrick theme={ HEAVY_BAND_THEME } hasHeader={ false }>
-  <ContextPropagator>
+  <ThemePropagator>
     <h1>Our product highlight</h1>
     <p>you wont find a better product anywhere in the universe.</p>
     <CallToAction label="buy" /><CallToAction label="learn more" />
-  </ContextPropagator>
+  </ThemePropagator>
   <PlaceHolder />
 </DoubleContentBrick>
 <GenericBrick

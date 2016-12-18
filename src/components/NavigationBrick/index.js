@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import { ContextPropagator, CallToAction } from '../../';
+import { CallToAction } from '../../';
 
 function handleClick(onClick, args) {
   return (event) => {

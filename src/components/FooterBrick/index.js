@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import { ContextPropagator, CallToAction } from '../../';
+import { ThemePropagator, CallToAction } from '../../';
 import FontAwesome from 'react-fontawesome';
 
 function renderIcon(icon, s) {
@@ -100,11 +100,11 @@ export default (props) => {
 
   return (
     <section style={ s.box }>
-      <ContextPropagator theme={ props.theme }>
+      <ThemePropagator theme={ props.theme }>
         <div style={ s.container }>
           { renderContent(props, s) }
         </div>
-      </ContextPropagator>
+      </ThemePropagator>
     </section>
   );
 

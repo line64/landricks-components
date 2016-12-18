@@ -1,4 +1,4 @@
-# Available Landricks: 
+# Available Landricks:
 
 1. LandingCanvas
 2. DoubleContentBrick
@@ -11,7 +11,7 @@
 9. PlaceHolder
 10. StrongMessageBrick
 11. CallToAction
-12. ContextPropagator
+12. ThemePropagator
 
 # Expected Props
 
@@ -60,7 +60,7 @@
 * renderHeader: React.PropTypes.func,
 * children: React.PropTypes.arrayOf(React.PropTypes.element)
 * theme: LandricksPropTypes.brickTheme
- 
+
 ### FeatureItem
 * icon: React.PropTypes.string,
 * image: React.PropTypes.string,
@@ -102,10 +102,10 @@
 * renderHeader: React.PropTypes.func
 * children: React.PropTypes.arrayOf(React.PropTypes.element)
 
-### NavigationBrick 
+### NavigationBrick
 * brand: React.PropTypes.string
 * logo: React.PropTypes.string
-* items: React.PropTypes.arrayOf({ 
+* items: React.PropTypes.arrayOf({
     label: React.PropTypes.string,
     onClick: React.PropTypes.func,
     highlight: React.PropTypes.bool
@@ -134,7 +134,7 @@
 * onClick: React.PropTypes.func
 * theme: LandricksPropTypes.brickTheme
 
-### ContextPropagator
+### ThemePropagator
 * wrapperStyle: React.PropTypes.object
 * children: React.PropTypes.arrayOf(React.PropTypes.element)
 
@@ -149,4 +149,3 @@ DEFAULT_THEME = {
   textColor: '#FFFFFF'
 };
 ```
-

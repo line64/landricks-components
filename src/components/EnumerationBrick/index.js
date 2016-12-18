@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles';
 import FontAwesome from 'react-fontawesome';
-import { ContextPropagator, GenericBrick } from '../../';
+import { GenericBrick } from '../../';
 import { LandricksPropTypes } from '../../conventions';
 
 const EnumerationBrick = (props) => {

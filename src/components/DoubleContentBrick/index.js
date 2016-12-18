@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles';
-import { ContextPropagator, GenericBrick } from '../../';
+import { ThemePropagator, GenericBrick } from '../../';
 import { LandricksPropTypes } from '../../conventions';
 
 class DoubleContentBrick extends Component {
@@ -12,9 +12,9 @@ class DoubleContentBrick extends Component {
     }
 
     return (
-      <ContextPropagator {...parentProps} wrapperStyle={{ flex: 1 }}>
+      <ThemePropagator {...parentProps} wrapperStyle={{ flex: 1 }}>
         { firstChild }
-      </ContextPropagator>
+      </ThemePropagator>
     );
 
   }
@@ -26,9 +26,9 @@ class DoubleContentBrick extends Component {
     }
 
     return (
-      <ContextPropagator {...parentProps} wrapperStyle={{ flex: 1 }}>
+      <ThemePropagator {...parentProps} wrapperStyle={{ flex: 1 }}>
         { secondChild }
-      </ContextPropagator>
+      </ThemePropagator>
     );
 
   }

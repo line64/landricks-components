@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ContextPropagator } from '../../';
+import { ThemePropagator } from '../../';
 import { LandricksPropTypes } from '../../conventions';
 
 import styles from './styles';
@@ -32,9 +32,9 @@ class GenericBrick extends Component {
     }
 
     return (
-      <ContextPropagator {...props} wrapperStyle={ styles.content }>
+      <ThemePropagator {...props} wrapperStyle={ styles.content }>
         { props.children }
-      </ContextPropagator>
+      </ThemePropagator>
     );
 
   }

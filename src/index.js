@@ -1,4 +1,4 @@
-import ContextPropagator from './components/ContextPropagator';
+import ThemePropagator from './components/ThemePropagator';
 import LandingCanvas from './components/LandingCanvas';
 import EnumerationBrick from './components/EnumerationBrick';
 import FooterBrick from './components/FooterBrick';
@@ -13,7 +13,7 @@ import PlaceHolder from './components/PlaceHolder';
 import styleHelpers from './utils/styleHelpers';
 
 export {
-  ContextPropagator,
+  ThemePropagator,
   LandingCanvas,
   EnumerationBrick,
   FooterBrick,

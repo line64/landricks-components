@@ -7,7 +7,7 @@ function renderThemedChildren(props) {
   });
 }
 
-const ContextPropagator = (props) => {
+const ThemePropagator = (props) => {
   return (
     <div style={props.wrapperStyle}>
       { renderThemedChildren(props) }
@@ -15,9 +15,9 @@ const ContextPropagator = (props) => {
   );
 }
 
-ContextPropagator.propTypes = {
+ThemePropagator.propTypes = {
   wrapperStyle: React.PropTypes.object,
   children: React.PropTypes.node
 };
 
-export default ContextPropagator;
+export default ThemePropagator;
