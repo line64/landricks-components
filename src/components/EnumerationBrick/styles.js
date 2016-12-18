@@ -21,9 +21,10 @@ export default function (props) {
     container: {
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       alignItems: 'center',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      ...contentStyle,
     }
   };
 
