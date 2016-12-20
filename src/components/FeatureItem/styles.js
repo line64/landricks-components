@@ -57,7 +57,8 @@ export default function (props) {
     wrapperStyle,
     iconStyle,
     titleStyle,
-    descriptionStyle
+    descriptionStyle,
+    imageStyle
   } = props;
 
   let styles = {
@@ -73,6 +74,10 @@ export default function (props) {
     icon: {
       fontSize: '3em',
       ...iconStyle
+    },
+    image: {
+      width: '6em',
+      ...imageStyle
     },
     title: {
       fontSize: '1em',
