@@ -11,21 +11,23 @@ function calculateViewportFromWindow() {
 }
 
 function renderAugmentedChildren(props) {
-  return React.Children.map(props.children, (child) => {
-    if (!child) return null;
-    return React.cloneElement(child, { viewport: props.viewport });
-  });
-}
-
-const LandingCanvas = (props) => {
-
-  const s = styles(props);
 
   let {
     viewport
   } = props;
 
   viewport = viewport || calculateViewportFromWindow();
+
+  return React.Children.map(props.children, (child) => {
+    if (!child) return null;
+    return React.cloneElement(child, { viewport });
+  });
+
+}
+
+const LandingCanvas = (props) => {
+
+  const s = styles(props);
 
   return (
     <div style={ s.wrapper }>
