@@ -6,6 +6,7 @@ import EmailSqueezeBrick from './components/EmailSqueezeBrick';
 import StrongMessageBrick from './components/StrongMessageBrick';
 import GenericBrick from './components/GenericBrick';
 import DoubleContentBrick from './components/DoubleContentBrick';
+import TripleContentBrick from './components/TripleContentBrick';
 import NavigationBrick from './components/NavigationBrick';
 import GalleryBrick from './components/GalleryBrick';
 import CallToAction from './components/CallToAction';
@@ -23,6 +24,7 @@ export {
   StrongMessageBrick,
   GenericBrick,
   DoubleContentBrick,
+  TripleContentBrick,
   NavigationBrick,
   CallToAction,
   FeatureItem,
