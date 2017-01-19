@@ -3,11 +3,15 @@ import Helmet from 'react-helmet';
 import styles from './styles';
 
 function calculateViewportFromWindow() {
-  if (window.innerWidth >= 544) return 'sm';
-  if (window.innerWidth >= 768) return 'md';
-  if (window.innerWidth >= 992) return 'lg';
-  if (window.innerWidth >= 1200) return 'xl';
-  return'xs';
+  if (typeof window !== 'undefined') {
+    if (window.innerWidth >= 544) return 'sm';
+    if (window.innerWidth >= 768) return 'md';
+    if (window.innerWidth >= 992) return 'lg';
+    if (window.innerWidth >= 1200) return 'xl';
+    return'xs';
+  } else {
+    return null;
+  }
 }
 
 function renderAugmentedChildren(props) {

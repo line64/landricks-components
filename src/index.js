@@ -6,7 +6,9 @@ import EmailSqueezeBrick from './components/EmailSqueezeBrick';
 import StrongMessageBrick from './components/StrongMessageBrick';
 import GenericBrick from './components/GenericBrick';
 import DoubleContentBrick from './components/DoubleContentBrick';
+import TripleContentBrick from './components/TripleContentBrick';
 import NavigationBrick from './components/NavigationBrick';
+import GalleryBrick from './components/GalleryBrick';
 import CallToAction from './components/CallToAction';
 import FeatureItem from './components/FeatureItem';
 import PlaceHolder from './components/PlaceHolder';
@@ -17,10 +19,12 @@ export {
   LandingCanvas,
   EnumerationBrick,
   FooterBrick,
+  GalleryBrick,
   EmailSqueezeBrick,
   StrongMessageBrick,
   GenericBrick,
   DoubleContentBrick,
+  TripleContentBrick,
   NavigationBrick,
   CallToAction,
   FeatureItem,

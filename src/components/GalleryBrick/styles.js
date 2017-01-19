@@ -51,6 +51,9 @@ export default function (props) {
   let {
     textColor,
     primaryColor,
+    fontSize,
+    indicatorColor,
+    controlsColor
   } = safeThemeFromProps(props);
 
   let {
@@ -58,38 +61,60 @@ export default function (props) {
     iconStyle,
     titleStyle,
     descriptionStyle,
-    imageStyle
+    itemStyle
   } = props;
 
   let styles = {
     wrapper: {
       ...getWrapperForDesign(props),
-      padding: '1.7%',
-      margin: '1%',
       textAlign: 'center',
-      minWidth: '200px',
+      minHeigh: '200px',
+      display: 'flex',
+      padding: '2% 5%',
+      flexDirection: 'row',
       flex: 1,
       ...wrapperStyle,
     },
-    icon: {
-      fontSize: '3em',
-      ...iconStyle
+    container: {
+      flexDirection: 'column',
+      textAlign: 'center',
+      backgroundColor: primaryColor || '#fff',
+      paddingBottom: '2%'
     },
-    image: {
-      width: '6em',
-      ...imageStyle
+    slider: {
+      flex: 5,
+      display: 'flex'
     },
-    title: {
-      fontSize: '1em',
-      fontWeight: 'bold',
-      margin: '0.5%',
-      ...titleStyle
+    controls : {
+      alignSelf: 'center',
+      margin: '0 15px',
+      fontSize: '2.5rem',
+      color : controlsColor || '#000'
     },
-    description: {
-      fontSize: '0.8em',
-      fontWeight: 'normal',
-      margin: '0.5%',
-      ...descriptionStyle
+    itemWrapper: {
+      flex: 1,
+      margin: '20px',
+      flexGrow: 1,
+      flexBasis : 'auto',
+      alignSelf: 'center'
+    },
+    item: {
+      maxWidth: '100%',
+      maxHeight: '100%',
+      minHeight: 100,
+      minWidth: 100,
+      ...itemStyle
+    },
+    center: {
+      textAlign: 'center',
+      alignSelf: 'center',
+      padding: '25px',
+      backgroundColor: primaryColor || '#fff',
+      padding: 0
+    },
+    indicator: {
+      margin: '0 5px',
+      color: indicatorColor || "#000"
     }
   };
 

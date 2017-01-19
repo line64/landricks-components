@@ -14,7 +14,6 @@ export default function (props) {
   } = safeThemeFromProps(props);
 
   let {
-    viewport,
     mode
   } = props;
 
