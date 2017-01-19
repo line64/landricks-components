@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styles from './styles';
 
 function calculateViewportFromWindow() {
   if (typeof window !== 'undefined') {
@@ -15,26 +14,20 @@ function calculateViewportFromWindow() {
 }
 
 function renderAugmentedChildren(props) {
-
-  let {
-    viewport
-  } = props;
-
-  viewport = viewport || calculateViewportFromWindow();
-
   return React.Children.map(props.children, (child) => {
     if (!child) return null;
-    return React.cloneElement(child, { viewport });
+    return React.cloneElement(child, { viewport: props.viewport });
   });
-
 }
 
 const LandingCanvas = (props) => {
 
-  const s = styles(props);
+  let { viewport } = props;
+
+  viewport = viewport || calculateViewportFromWindow();
 
   return (
-    <div style={ s.wrapper }>
+    <div style={ props.wrapperStyle }>
       <Helmet
         link={[
           { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato' },
