@@ -70,7 +70,7 @@ export default function (props) {
       textAlign: 'center',
       minHeigh: '200px',
       display: 'flex',
-      padding: '2% 5%',
+      padding: '2%',
       flexDirection: 'row',
       flex: 1,
       ...wrapperStyle,
@@ -78,8 +78,7 @@ export default function (props) {
     container: {
       flexDirection: 'column',
       textAlign: 'center',
-      backgroundColor: primaryColor || '#fff',
-      paddingBottom: '2%'
+      backgroundColor: primaryColor || '#fff'
     },
     slider: {
       flex: 5,
