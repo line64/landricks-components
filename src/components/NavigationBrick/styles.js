@@ -86,11 +86,51 @@ export default function (props) {
       marginLeft: '10px',
       ...brandStyle,
       ...props.brandStyle
+    },
+    mobile: {
+      box: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '10vh',
+        zIndex: 1000,
+        background : backgroundColor || '#37474f',
+        display: 'flex',
+        ...props.contentStyle
+      }
+    },
+    menuContent: {
+      position : 'fixed',
+      height: '90vh',
+      top: '10vh',
+      width: '60%',
+      left: '-60%',
+      transition: 'left .5s',
+      backgroundColor: backgroundColor || '#37474f'
+    },
+    mobileNavigationContainer : {
+      display : 'flex',
+      flexDirection: 'column',
+      textAlign: 'center',
+      paddingTop: '5vh'
+    },
+    menuOpen: {
+      left: 0
+    },
+    menuIcon: {
+      color: textColor || '#fff', 
+      fontSize: '1.8rem', 
+      margin: 15,
+      position: 'absolute',
+      top: 0,
+      ...props.iconStyle
     }
   };
 
   if (mode === 'FIXED') {
     styles.box.position = 'fixed';
+    styles.mobile.box.position = 'fixed';
   }
 
   return styles;
