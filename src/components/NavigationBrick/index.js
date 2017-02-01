@@ -49,7 +49,7 @@ export default class NavigationBrick extends Component {
 		);
 	}
 
-	renderDesktop(s) {
+	renderFullWidth(s) {
 		return(
 			<nav style={ s.box }>
 				<div style={ s.boxContent }>
@@ -60,7 +60,7 @@ export default class NavigationBrick extends Component {
 		)
 	}
 
-	renderMobile(s) {
+	renderCollapsed(s) {
 		return(
 			<nav style={s.mobile.box}>
 
@@ -69,13 +69,13 @@ export default class NavigationBrick extends Component {
 				{ (this.props.logo) ? ( <img style={{ ...s.logo, ...{margin: 'auto'} }} src={ this.props.logo } /> ) : null }
 				{ (this.props.brand && !this.props.logo) ? ( <span style={ s.brand }>{ this.props.brand }</span> ) : null }
 
-				{ this.renderMobileContent(s)  }
+				{ this.renderCollapsedContent(s)  }
 
 			</nav>
 		)
 	}
 
-	renderMobileContent(s){
+	renderCollapsedContent(s){
 		let visible = { ...s.menuContent, ...(this.state.open) ? s.menuOpen : '' };
 		return (
 			<div style={ visible }>
@@ -88,9 +88,10 @@ export default class NavigationBrick extends Component {
 
 	render(){
 		let s = styles(this.props);
-
-  		return (!this.props.mobile) ? this.renderDesktop(s) : this.renderMobile(s);
+		let { viewport } = this.props;
+		return (viewport == 'xs' || viewport == 'sm') ? this.renderCollapsed(s) : this.renderFullWidth(s)
 		
+  		
 	}
 
 	
