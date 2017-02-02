@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styles from './styles';
-import { CallToAction } from '../../';
 import Fontawesome from 'react-fontawesome';
+import styles from './styles';
+
 
 export default class NavigationBrick extends Component {
 	constructor(props){
@@ -19,22 +19,21 @@ export default class NavigationBrick extends Component {
 	}
 
 	renderItems(s, items) {
-		if (items && items.length > 0) {
-			return items.map((item, index) => {
-				return (
-					<li onClick={ ()=> this.setState({ open : false })} style={ item.highlight ? s.itemHighlight : s.item } key={ index }>
-						<a style={ s.itemLink } href="#" onClick={ this.handleClick(item.onClick) }>{ item.label }</a>
-					</li>
-				);
-			});
-		} else {
-			return null;
-		}
+		if(!items || !items.length ) return null;
+
+		return items.map((item, index) => {
+			return (
+				<li onClick={ ()=> this.setState({ open : false })} style={ item.highlight ? s.itemHighlight : s.item } key={ index }>
+					<a style={ s.itemLink } href="#" onClick={ ()=> this.handleClick(item.onClick)  }>{ item.label }</a>
+				</li>
+			);
+		});
+		
 	}
 
-	renderNavigation(s, items, isMobile) {
+	renderNavigation(s, items, isCollapsed) {
 		return (
-			<ul style={{ ...s.navigationContainer, ...(isMobile)?  s.mobileNavigationContainer  : {} }}>
+			<ul style={{ ...s.navigationContainer, ...(isCollapsed)?  s.collapsedContainer  : {} }}>
 				{ this.renderItems(s, items) }
 			</ul>
 		);
@@ -62,7 +61,7 @@ export default class NavigationBrick extends Component {
 
 	renderCollapsed(s) {
 		return(
-			<nav style={s.mobile.box}>
+			<nav style={s.collapsed.box}>
 
 				<Fontawesome name={ (this.state.open) ? 'times' : 'bars' } style={ s.menuIcon } onClick={ ()=> this.setState({ open : !this.state.open }) } />
 
@@ -89,9 +88,8 @@ export default class NavigationBrick extends Component {
 	render(){
 		let s = styles(this.props);
 		let { viewport } = this.props;
-		return (viewport == 'xs' || viewport == 'sm') ? this.renderCollapsed(s) : this.renderFullWidth(s)
-		
-  		
+
+		return (viewport == 'xs' || viewport == 'sm') ? this.renderCollapsed(s) : this.renderFullWidth(s);
 	}
 
 	

@@ -19,7 +19,7 @@ export default function (props) {
 
   let styles = {
     box: {
-      position: 'absolute',
+      position: 'fixed',
       top: 0,
       left: 0,
       width: '100%',
@@ -87,9 +87,9 @@ export default function (props) {
       ...brandStyle,
       ...props.brandStyle
     },
-    mobile: {
+    collapsed: {
       box: {
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         width: '100%',
@@ -109,7 +109,7 @@ export default function (props) {
       transition: 'left .5s',
       backgroundColor: backgroundColor || '#37474f'
     },
-    mobileNavigationContainer : {
+    collapsedContainer : {
       display : 'flex',
       flexDirection: 'column',
       textAlign: 'center',
@@ -128,10 +128,6 @@ export default function (props) {
     }
   };
 
-  if (mode === 'FIXED') {
-    styles.box.position = 'fixed';
-    styles.mobile.box.position = 'fixed';
-  }
 
   return styles;
 
