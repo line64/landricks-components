@@ -36,10 +36,11 @@ class GalleryBrick extends Component {
   }
 
   renderPrevBtn(style){
-    if(this.state.currentPage === 1) return null;
+    let styleCustom = {};
+    if(this.state.currentPage === 1) styleCustom = { opacity : '0', pointerEvents : 'none' }
     return (
       <a 
-        style={ style.controls } 
+        style={{ ...style.controls, ...styleCustom }} 
         onClick={ () => this.setState({ currentPage : this.state.currentPage - 1 }) } >
         <FontAwesome name="chevron-left" />
       </a>
@@ -47,10 +48,11 @@ class GalleryBrick extends Component {
   }
 
   renderNextBtn(style){
-    if(this.state.currentPage >= this.calculatePages()) return null;
+    let styleCustom = {};
+    if(this.state.currentPage >= this.calculatePages()) styleCustom = { opacity : '0', pointerEvents : 'none' }
     return (
       <a 
-        style={ style.controls } 
+        style={{ ...style.controls, ...styleCustom }} 
         onClick={ () => this.setState({ currentPage : this.state.currentPage + 1 }) } >
         <FontAwesome name="chevron-right" />
       </a>
