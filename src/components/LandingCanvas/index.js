@@ -3,11 +3,12 @@ import Helmet from 'react-helmet';
 
 function calculateViewportFromWindow() {
   if (typeof window !== 'undefined') {
-    if (window.innerWidth >= 544) return 'sm';
-    if (window.innerWidth >= 768) return 'md';
-    if (window.innerWidth >= 992) return 'lg';
-    if (window.innerWidth >= 1200) return 'xl';
-    return'xs';
+    let size = window.innerWidth;
+    if (size < 544) return 'xs';
+    if (size >= 544 && size < 768) return 'sm';
+    if (size >= 768 && size < 992) return 'md';
+    if (size >= 992 && size < 1200) return 'lg';
+    if (size >= 1200) return 'xl';
   } else {
     return null;
   }
@@ -16,16 +17,11 @@ function calculateViewportFromWindow() {
 function renderAugmentedChildren(props) {
   return React.Children.map(props.children, (child) => {
     if (!child) return null;
-    return React.cloneElement(child, { viewport: props.viewport });
+    return React.cloneElement(child, { viewport: calculateViewportFromWindow() });
   });
 }
 
 const LandingCanvas = (props) => {
-
-  let { viewport } = props;
-
-  viewport = viewport || calculateViewportFromWindow();
-
   return (
     <div style={ props.wrapperStyle }>
       <Helmet
