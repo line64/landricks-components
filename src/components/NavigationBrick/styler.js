@@ -14,7 +14,8 @@ export default function (props) {
   } = safeThemeFromProps(props);
 
   let {
-    mode
+    mode,
+    barContentStyle
   } = props;
 
   let styles = {
@@ -69,7 +70,9 @@ export default function (props) {
     },
     itemLink: {
       color: textColor,
-      textDecoration: 'none'
+      textDecoration: 'none',
+      border: 'none',
+      background: 'transparent'
     },
     logo: {
       height: '50px',
@@ -125,6 +128,13 @@ export default function (props) {
       position: 'absolute',
       top: 0,
       ...props.iconStyle
+    },
+    collapsedHeader: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      ...barContentStyle
     }
   };
 
