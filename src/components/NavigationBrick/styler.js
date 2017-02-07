@@ -14,12 +14,13 @@ export default function (props) {
   } = safeThemeFromProps(props);
 
   let {
-    mode
+    mode,
+    barContentStyle
   } = props;
 
   let styles = {
     box: {
-      position: 'absolute',
+      position: 'fixed',
       top: 0,
       left: 0,
       width: '100%',
@@ -69,7 +70,9 @@ export default function (props) {
     },
     itemLink: {
       color: textColor,
-      textDecoration: 'none'
+      textDecoration: 'none',
+      border: 'none',
+      background: 'transparent'
     },
     logo: {
       height: '50px',
@@ -86,12 +89,55 @@ export default function (props) {
       marginLeft: '10px',
       ...brandStyle,
       ...props.brandStyle
+    },
+    collapsed: {
+      box: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '10vh',
+        zIndex: 1000,
+        background : backgroundColor || '#37474f',
+        display: 'flex',
+        ...props.contentStyle
+      }
+    },
+    menuContent: {
+      position : 'fixed',
+      height: '90vh',
+      top: '10vh',
+      width: '60%',
+      left: '-60%',
+      transition: 'left .5s',
+      backgroundColor: backgroundColor || '#37474f'
+    },
+    collapsedContainer : {
+      display : 'flex',
+      flexDirection: 'column',
+      textAlign: 'center',
+      paddingTop: '5vh'
+    },
+    menuOpen: {
+      left: 0
+    },
+    menuIcon: {
+      color: textColor || '#fff', 
+      fontSize: '1.8rem', 
+      margin: 15,
+      position: 'absolute',
+      top: 0,
+      ...props.iconStyle
+    },
+    collapsedHeader: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      ...barContentStyle
     }
   };
 
-  if (mode === 'FIXED') {
-    styles.box.position = 'fixed';
-  }
 
   return styles;
 
