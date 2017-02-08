@@ -44,7 +44,7 @@ class GenericBrick extends Component {
     let s = styles(this.props);
 
     return (
-      <section style={ s.wrapper }>
+      <section {...this.props} style={ s.wrapper }>
         <div style={ s.canvas }>
           { this.renderHeader(s, this.props) }
           { this.renderContent(s, this.props) }
