@@ -1,111 +1,100 @@
-import React from 'react';
-import styles from './styles';
-import { ThemePropagator, CallToAction } from '../../';
+import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
+import styles from './styles';
 
-function renderIcon(icon, s) {
-  if (!icon) return;
-  return (<FontAwesome style={ s.icon } name={icon} />);
-}
+class FooterBrick extends Component {
 
-function renderItems(item, s) {
-  if (item.icon) return <li key={ item.key } >{ renderIcon(item.icon, s) }<a style={ s.text } target="_blank" href={ item.link } >{ item.text }</a></li>
-  if (item.link) return <li key={ item.key } ><a style={ s.text } target="_blank" href={ item.link } >{ item.text }</a></li>
-  if (item) return <li key={ item.key } ><a style={ s.text }>{ item.text }</a></li>
-  return null;
-};
+  renderSimpleFooter(s) {
+    let { title, description, image } = this.props;
 
-function renderColumn1(props, s) {
-  if (!props.itemsColumn1) return (<div style={ s.textColumn2 }></div>);
-  return(
-    <div style={ s.textColumn1 }>
-      <ul style={ s.noList }>
-        { props.itemsColumn1.map((items) => renderItems(items, s)) }
-      </ul>
-    </div>
-  );
-};
-
-function renderColumn2(props, s) {
-  if (!props.itemsColumn2) return (<div style={ s.textColumn2 }></div>);
-  return(
-    <div style={ s.textColumn2 }>
-      <ul style={ s.noList }>
-        { props.itemsColumn2.map((items) => renderItems(items, s)) }
-      </ul>
-    </div>
-  );
-};
-
-function renderColumn3(props, s) {
-  if (!props.itemsColumn3) return (<div style={ s.textColumn2 }></div>);
-  return(
-    <div style={ s.textColumn3 }>
-      <ul style={ s.noList }>
-        { props.itemsColumn3.map((items) => renderItems(items, s)) }
-      </ul>
-    </div>
-  );
-};
-
-function renderContent(props, s) {
-
-  if (props.withColumns) {
-
-    return renderColumns(props, s);
-
+    return(
+      <div style={ s.center }>
+        { (title) ? <h1>{ title }</h1> : null }
+        { (description) ? <p>{ description }</p> : null }
+        { (image) ? <img src={ image } height="50" alt="logo" /> : null }
+      </div>
+    )
   }
 
-  if (props.simple) {
+  renderExpandFooter(s) {
+    let { itemsLeft, itemsRight, enterprise } = this.props;
 
-    return renderSimple(props, s);
+    return(
+      <div style={ s.center }>
 
+        <ul style={ s.leftContainter }>
+          { itemsLeft.map((item)=> this.renderItem(item, s) ) }
+        </ul>
+
+        <ul style={ s.rightContainter }>
+          <div style={{ flexDirection: 'row', display: 'flex', margin: 0 }}>
+            { itemsRight.map((item)=> this.renderItem(item, s) ) }
+          </div>
+            { ( enterprise ) ? this.renderEnterprise(s, enterprise) : null }
+        </ul>
+
+      </div>
+    )
   }
 
-}
 
-function renderColumns(props, s) {
+  renderItem(item, s) {
+    return(
+      <li style={ s.item }>
+    { (item.text || item.icon) ? <a href={ (item.link) ? item.link : null } style={ ( item.icon ) ? s.icon : s.noLink } target="_blank">{ (item.icon) ?  <FontAwesome style={ s.Faicon } name={ item.icon } />  : item.text }</a> : '' }
+      </li>
+    )
+  }
 
-  return (
-    <div>
-      { renderColumn1(props, s) }
-      { renderColumn2(props, s) }
-      { renderColumn3(props, s) }
-    </div>
-  );
-
-}
-
-function renderSimple(props, s) {
-
-  return (
-    <div>
-      <ul style={ s.simpleList }>
-        <li style={ s.simpleListItem }>Terms</li>
-        <li style={ s.simpleListItem }>Imprint</li>
-        <li style={ s.simpleListItem }>Privacy Policy</li>
-      </ul>
-      <p style={ s.simpleCopy }>
-        <img src={ props.logo } style={ s.simpleLogo } />
-        All Rights Reserved.
+  renderEnterprise(s, enterprise) {
+    return (
+      <p style={ s.enterprise }>
+        { (enterprise.text) ? `${enterprise.text} ` : '' }
+        { (enterprise.icon) ? <FontAwesome name={ enterprise.icon } /> : '' }
+        { (enterprise.otherText) ? ` ${enterprise.otherText} ` : '' }
+        { (enterprise.logo) ? <img src={ enterprise.logo } style={ s.logo } /> : '' }
       </p>
-    </div>
-  );
+    )
+  }
+
+  render() {
+
+    let s = styles(this.props);
+
+    let {
+      icon,
+      title,
+      description,
+      type,
+      itemsLeft,
+      itemsRight
+    } = this.props;
+
+    
+
+    return (
+      <div {...this.props} style={ s.wrapper }>
+        { ( type === 'simple' ) ? this.renderSimpleFooter(s) : null }
+        { ( type === 'expand' && itemsLeft || itemsRight ) ? this.renderExpandFooter(s) : null }
+      </div>
+    );
+
+  }
 
 }
 
-export default (props) => {
+FooterBrick.propTypes = {
+  icon: React.PropTypes.string,
+  title: React.PropTypes.string,
+  type: React.PropTypes.string,
+  image: React.PropTypes.string,
+  itemsRight: React.PropTypes.array,
+  itemsLeft: React.PropTypes.array,
+  enterprise: React.PropTypes.object,
+  description: React.PropTypes.string
+};
 
-  let s = styles(props);
+export default FooterBrick;
 
-  return (
-    <section style={ s.box }>
-      <ThemePropagator theme={ props.theme }>
-        <div style={ s.container }>
-          { renderContent(props, s) }
-        </div>
-      </ThemePropagator>
-    </section>
-  );
 
-}
+// { icon ? <FontAwesome name={ icon } style={ s.icon } /> : null }
