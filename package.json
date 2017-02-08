@@ -1,6 +1,6 @@
 {
   "name": "landricks-components",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A set or React components for building structured landing pages",
   "main": "lib/index.js",
   "scripts": {
