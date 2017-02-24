@@ -61,7 +61,8 @@ export default function (props) {
     iconStyle,
     titleStyle,
     descriptionStyle,
-    itemStyle
+    itemStyle,
+    pageWrapperStyle
   } = props;
 
   let styles = {
@@ -80,9 +81,10 @@ export default function (props) {
       textAlign: 'center',
       backgroundColor: primaryColor || '#fff'
     },
-    slider: {
+    pageWrapper: {
       flex: 5,
-      display: 'flex'
+      display: 'flex',
+      ...pageWrapperStyle
     },
     controls : {
       alignSelf: 'center',

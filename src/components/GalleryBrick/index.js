@@ -18,11 +18,7 @@ class GalleryBrick extends Component {
   }
 
   renderItem(item, key, style){
-    return (
-      <div style={ style.itemWrapper }>
-        { item }
-      </div>
-    )
+    return item 
   }
 
   renderPageOfItems(items, style){
@@ -85,7 +81,7 @@ class GalleryBrick extends Component {
       <GenericBrick {...this.props} contentStyle={ style.container }>
         <div style={ style.wrapper }>
           { this.renderPrevBtn(style) }
-          <div style={ style.slider } > 
+          <div style={ style.pageWrapper } > 
             { this.renderPageOfItems(items, style) } 
           </div>
            { this.renderNextBtn(style) }
