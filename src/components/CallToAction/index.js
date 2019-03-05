@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import styles from './styles';
 
@@ -75,11 +76,11 @@ class CallToAction extends Component {
 }
 
 CallToAction.propTypes = {
-  href: React.PropTypes.string,
-  target: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  label: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  href: PropTypes.string,
+  target: PropTypes.string,
+  icon: PropTypes.string,
+  label: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default CallToAction;

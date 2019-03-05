@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import styles from './styles';
 
@@ -57,10 +58,10 @@ class FeatureItem extends Component {
 }
 
 FeatureItem.propTypes = {
-  icon: React.PropTypes.string,
-  image: React.PropTypes.string,
-  title: React.PropTypes.string,
-  description: React.PropTypes.string
+  icon: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string
 };
 
 export default FeatureItem;

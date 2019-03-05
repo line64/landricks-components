@@ -1,5 +1,8 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+
+import { linkTo } from '@storybook/addon-links';
+import { action } from '@storybook/addon-actions';
 
 import {
   LandingCanvas,
@@ -50,7 +53,7 @@ const LIGHT_BAND_THEME = {
 };
 
 storiesOf('Showcase', module)
-  .addWithInfo('Dummy Landing', () => (
+  .add('Dummy Landing', () => (
     <LandingCanvas>
       <StrongMessageBrick
         theme={ HEADER_BAND_THEME }
@@ -117,7 +120,7 @@ storiesOf('Showcase', module)
   ), { inline: true });
 
 storiesOf('Layout Bricks', module)
-  .addWithInfo('Generic Brick', () => (
+  .add('Generic Brick', () => (
     <GenericBrick
       theme={ HEAVY_BAND_THEME }
       title="Yes, we can!"
@@ -125,7 +128,7 @@ storiesOf('Layout Bricks', module)
       <PlaceHolder />
     </GenericBrick>
   ), { inline: true })
-  .addWithInfo('Generic With Background', () => (
+  .add('Generic With Background', () => (
     <GenericBrick
       theme={ HEAVY_BAND_THEME }
       title="Yes, we can!"
@@ -134,7 +137,7 @@ storiesOf('Layout Bricks', module)
       <PlaceHolder />
     </GenericBrick>
   ), { inline: true })
-  .addWithInfo('Double Content Brick', () => (
+  .add('Double Content Brick', () => (
     <DoubleContentBrick theme={ HEAVY_BAND_THEME } hasHeader={ false }>
       <PlaceHolder />
       <PlaceHolder />
@@ -150,7 +153,7 @@ storiesOf('Layout Bricks', module)
       <PlaceHolder />
     </DoubleContentBrick>
   ))
-  .addWithInfo('Enumeration Brick', () => (
+  .add('Enumeration Brick', () => (
     <LandingCanvas>
       <EnumerationBrick
         theme={ HEAVY_BAND_THEME }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { GenericBrick } from '../../';
 import styles from './styles';
@@ -96,10 +97,10 @@ class GalleryBrick extends Component {
 
 
 GalleryBrick.propTypes = {
-  title : React.PropTypes.string, 
-  subtitle : React.PropTypes.string, 
-  items: React.PropTypes.array,
-  itemsPerPage : React.PropTypes.number
+  title : PropTypes.string, 
+  subtitle : PropTypes.string, 
+  items: PropTypes.array,
+  itemsPerPage : PropTypes.number
 };
 
 export default GalleryBrick;

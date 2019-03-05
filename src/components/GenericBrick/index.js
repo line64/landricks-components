@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ThemePropagator } from '../../';
 import { LandricksPropTypes } from '../../conventions';
 
@@ -44,7 +45,7 @@ class GenericBrick extends Component {
     let s = styles(this.props);
 
     return (
-      <section {...this.props} style={ s.wrapper }>
+      <section style={ s.wrapper }>
         <div style={ s.canvas }>
           { this.renderHeader(s, this.props) }
           { this.renderContent(s, this.props) }
@@ -57,17 +58,17 @@ class GenericBrick extends Component {
 }
 
 GenericBrick.propTypes = {
-  hasHeader: React.PropTypes.bool,
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
+  hasHeader: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   theme: LandricksPropTypes.brickTheme,
-  wrapperStyle: React.PropTypes.object,
-  contentStyle: React.PropTypes.object,
-  headerStyle: React.PropTypes.object,
-  titleStyle: React.PropTypes.object,
-  subtitleStyle: React.PropTypes.object,
-  renderContent: React.PropTypes.func,
-  renderHeader: React.PropTypes.func
+  wrapperStyle: PropTypes.object,
+  contentStyle: PropTypes.object,
+  headerStyle: PropTypes.object,
+  titleStyle: PropTypes.object,
+  subtitleStyle: PropTypes.object,
+  renderContent: PropTypes.func,
+  renderHeader: PropTypes.func
 }
 
 GenericBrick.defaultProps = {
