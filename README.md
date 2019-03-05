@@ -16,7 +16,9 @@ The simplest way to get a glance of the components is to use "react storybook". 
 
 Use *react-scripts* to create a web app called *quick-landing-page* (if you don't like react-scripts, use whatever procedure you prefer):
 
-    create-react-app quick-landing-page
+    npx create-react-app quick-landing-page
+    cd quick-landing-page
+    npm start
 
 **Add Landricks dependency**
 
@@ -26,7 +28,7 @@ Inside the dir of your fresh new app, run npm to add the required dependency:
 
 **Import components**
 
-Add the following import statement to src/App.js
+Add the following import statement to `src/App.js`:
 
 ```
 import {
@@ -46,7 +48,7 @@ import {
 
 **Define themes to be used by different bricks**
 
-Add the following constants to your src/App.js
+Add the following constants to your `src/App.js`:
 
 ```
 const BASE_THEME = {
@@ -85,7 +87,7 @@ const LIGHT_BAND_THEME = {
 
 **Add a LandingCanvas component**
 
-Replace the current render method of src/App.js for this one:
+Replace the current render method of `src/App.js` for this one:
 
 ```
 render() {
@@ -98,7 +100,7 @@ render() {
 
 **Add some Bricks to the canvas**
 
-Add these components as children of the LandingCanvas:
+Add these components as children of the `LandingCanvas`:
 
 ```
 <StrongMessageBrick
@@ -167,6 +169,4 @@ Add these components as children of the LandingCanvas:
 
 Use npm start script to start your app:
 
-```
-npm start
-```
+    npm start
