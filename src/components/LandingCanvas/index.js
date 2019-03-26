@@ -23,7 +23,7 @@ function renderAugmentedChildren(props) {
 const LandingCanvas = (props) => {
   return (
     <div style={ props.wrapperStyle }>
-      { props.children }
+      { renderAugmentedChildren(props) }
     </div>
   );
 }
