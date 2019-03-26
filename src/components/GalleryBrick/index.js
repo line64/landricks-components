@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
+// import FontAwesome from 'react-fontawesome';
 import { GenericBrick } from '../../';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 class GalleryBrick extends Component {
@@ -35,10 +36,8 @@ class GalleryBrick extends Component {
     let styleCustom = {};
     if(this.state.currentPage === 1) styleCustom = { opacity : '0', pointerEvents : 'none' }
     return (
-      <a 
-        style={{ ...style.controls, ...styleCustom }} 
-        onClick={ () => this.setState({ currentPage : this.state.currentPage - 1 }) } >
-        <FontAwesome name="chevron-left" />
+      <a style={{ ...style.controls, ...styleCustom }} onClick={ () => this.setState({ currentPage : this.state.currentPage - 1 }) } >
+        {'<'}
       </a>
     )
   }
@@ -50,7 +49,7 @@ class GalleryBrick extends Component {
       <a 
         style={{ ...style.controls, ...styleCustom }} 
         onClick={ () => this.setState({ currentPage : this.state.currentPage + 1 }) } >
-        <FontAwesome name="chevron-right" />
+        {'>'}
       </a>
     )
   }
@@ -62,13 +61,7 @@ class GalleryBrick extends Component {
     if(this.calculatePages() < 2) return null;
 
     return count.map((item) =>{
-      return (
-        <FontAwesome 
-          style={ style.indicator } 
-          onClick={ ()=> this.setState({ currentPage : item + 1 }) } 
-          name={ (currentPage === item + 1) ? 'circle' : 'circle-o' } 
-        />
-      )
+      return null
     });
   }
 
@@ -96,10 +89,10 @@ class GalleryBrick extends Component {
 
 
 GalleryBrick.propTypes = {
-  title : React.PropTypes.string, 
-  subtitle : React.PropTypes.string, 
-  items: React.PropTypes.array,
-  itemsPerPage : React.PropTypes.number
+  title : PropTypes.string, 
+  subtitle : PropTypes.string, 
+  items: PropTypes.array,
+  itemsPerPage : PropTypes.number
 };
 
 export default GalleryBrick;

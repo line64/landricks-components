@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 const PlaceHolder = (props) => {
 
@@ -22,9 +23,9 @@ const PlaceHolder = (props) => {
 }
 
 PlaceHolder.propTypes = {
-  wrapperStyle: React.PropTypes.object,
-  label: React.PropTypes.string,
-  useLoremIpsum: React.PropTypes.bool
+  wrapperStyle: PropTypes.object,
+  label: PropTypes.string,
+  useLoremIpsum: PropTypes.bool
 }
 
 PlaceHolder.defaultProps = {

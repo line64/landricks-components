@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 class FeatureItem extends Component {
 
@@ -28,7 +28,7 @@ class FeatureItem extends Component {
       return null;
     }
 
-    return (<FontAwesome name={ props.icon } style={ style.icon } />);
+    // return (<FontAwesome name={ props.icon } style={ style.icon } />);
 
   }
 
@@ -45,7 +45,6 @@ class FeatureItem extends Component {
 
     return (
       <div {...this.props} style={ s.wrapper }>
-        { icon ? <FontAwesome name={ icon } style={ s.icon } /> : null }
         { image ? <img src={ image } style={ s.image } /> : null }
         <h5 style={ s.title }>{ title }</h5>
         <p style={ s.description }>{ description }</p>
@@ -57,10 +56,10 @@ class FeatureItem extends Component {
 }
 
 FeatureItem.propTypes = {
-  icon: React.PropTypes.string,
-  image: React.PropTypes.string,
-  title: React.PropTypes.string,
-  description: React.PropTypes.string
+  icon: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string
 };
 
 export default FeatureItem;

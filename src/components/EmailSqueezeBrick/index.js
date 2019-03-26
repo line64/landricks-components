@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 let inputValue = null;
 
@@ -43,8 +44,8 @@ const EmailSqueezeBrick = (props) => {
 }
 
 EmailSqueezeBrick.propTypes = {
-  buttonLabel: React.PropTypes.string,
-  placeholder: React.PropTypes.string
+  buttonLabel: PropTypes.string,
+  placeholder: PropTypes.string
 };
 
 export default EmailSqueezeBrick;

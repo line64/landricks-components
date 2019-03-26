@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ThemePropagator } from '../../';
 import { LandricksPropTypes } from '../../conventions';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 
@@ -57,17 +58,17 @@ class GenericBrick extends Component {
 }
 
 GenericBrick.propTypes = {
-  hasHeader: React.PropTypes.bool,
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
+  hasHeader: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   theme: LandricksPropTypes.brickTheme,
-  wrapperStyle: React.PropTypes.object,
-  contentStyle: React.PropTypes.object,
-  headerStyle: React.PropTypes.object,
-  titleStyle: React.PropTypes.object,
-  subtitleStyle: React.PropTypes.object,
-  renderContent: React.PropTypes.func,
-  renderHeader: React.PropTypes.func
+  wrapperStyle: PropTypes.object,
+  contentStyle: PropTypes.object,
+  headerStyle: PropTypes.object,
+  titleStyle: PropTypes.object,
+  subtitleStyle: PropTypes.object,
+  renderContent: PropTypes.func,
+  renderHeader: PropTypes.func
 }
 
 GenericBrick.defaultProps = {

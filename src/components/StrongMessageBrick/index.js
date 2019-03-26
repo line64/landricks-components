@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles';
 import { ThemePropagator, GenericBrick } from '../../';
+import PropTypes from 'prop-types';
 
 class StrongMessageBrick extends Component {
 
@@ -63,8 +64,8 @@ class StrongMessageBrick extends Component {
 }
 
 StrongMessageBrick.propTypes = {
-  messageLevel1: React.PropTypes.string.isRequired,
-  messageLevel2: React.PropTypes.string
+  messageLevel1: PropTypes.string.isRequired,
+  messageLevel2: PropTypes.string
 }
 
 StrongMessageBrick.defaultProps = {
