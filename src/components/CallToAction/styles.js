@@ -1,4 +1,4 @@
-import { safeThemeFromProps, getBandStyle } from '../../utils/styleHelpers';
+import { safeThemeFromProps } from '../../utils/styleHelpers';
 
 function getWrapperForDesign(props) {
 

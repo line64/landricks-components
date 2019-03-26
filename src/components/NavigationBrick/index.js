@@ -30,10 +30,10 @@ export default class NavigationBrick extends Component {
 
 	renderNavigation(style, items, isCollapsed) {
 		return (
-			<ul style={{ ...style.navigationContainer, ...(isCollapsed)?  style.collapsedContainer  : {} }}>
+            <ul style={{ ...style.navigationContainer, ...(isCollapsed ? style.collapsedContainer : {}) }}>
 				{ this.renderItems(style, items) }
 			</ul>
-		);
+        );
 	}
 
 	renderLogo(style) {
@@ -74,7 +74,7 @@ export default class NavigationBrick extends Component {
 	}
 
 	renderCollapsedContent(style){
-		let visible = { ...style.menuContent, ...(this.state.open) ? style.menuOpen : '' };
+		let visible = { ...style.menuContent, ...(this.state.open ? style.menuOpen : '') };
 		return (
 			<div style={ visible }>
 				{ this.renderNavigation(style, this.props.items, true) }

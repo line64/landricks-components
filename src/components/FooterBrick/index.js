@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ThemePropagator, GenericBrick, TripleContentBrick } from '../../';
 import { LandricksPropTypes } from '../../conventions';
 
@@ -8,7 +9,7 @@ class FooterBrick extends Component {
 
     let [ firstChild, secondChild, thirdChild ] = React.Children.toArray(this.props.children);
 
-    return (  
+    return (
       <TripleContentBrick { ...this.props } theme={ this.props.theme } hasHeader={false}>
         { firstChild }
         { secondChild }
@@ -22,7 +23,7 @@ class FooterBrick extends Component {
 
 FooterBrick.propTypes = {
   theme: LandricksPropTypes.brickTheme,
-  children: React.PropTypes.arrayOf(React.PropTypes.element)
+  children: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default FooterBrick;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function renderThemedChildren(props) {
   return React.Children.map(props.children, (child) => {
@@ -16,8 +17,8 @@ const ThemePropagator = (props) => {
 }
 
 ThemePropagator.propTypes = {
-  wrapperStyle: React.PropTypes.object,
-  children: React.PropTypes.node
+  wrapperStyle: PropTypes.object,
+  children: PropTypes.node
 };
 
 export default ThemePropagator;

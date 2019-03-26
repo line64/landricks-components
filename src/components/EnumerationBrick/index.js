@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import FontAwesome from 'react-fontawesome';
 import { GenericBrick } from '../../';
@@ -17,17 +18,17 @@ const EnumerationBrick = (props) => {
 }
 
 EnumerationBrick.propTypes = {
-  hasHeader: React.PropTypes.bool,
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
+  hasHeader: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   theme: LandricksPropTypes.brickTheme,
-  wrapperStyle: React.PropTypes.object,
-  contentStyle: React.PropTypes.object,
-  headerStyle: React.PropTypes.object,
-  titleStyle: React.PropTypes.object,
-  subtitleStyle: React.PropTypes.object,
-  renderHeader: React.PropTypes.func,
-  children: React.PropTypes.arrayOf(React.PropTypes.element)
+  wrapperStyle: PropTypes.object,
+  contentStyle: PropTypes.object,
+  headerStyle: PropTypes.object,
+  titleStyle: PropTypes.object,
+  subtitleStyle: PropTypes.object,
+  renderHeader: PropTypes.func,
+  children: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default EnumerationBrick;

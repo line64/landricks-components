@@ -17,126 +17,126 @@
 
 ### LandingCanvas
 * theme: LandricksPropTypes.brickTheme,
-* children: React.PropTypes.arrayOf(React.PropTypes.element)
+* children: PropTypes.arrayOf(PropTypes.element)
 
 ### DoubleContentBrick
-* hasHeader: React.PropTypes.bool,
-* title: React.PropTypes.string,
-* subtitle: React.PropTypes.string,
+* hasHeader: PropTypes.bool,
+* title: PropTypes.string,
+* subtitle: PropTypes.string,
 * theme: LandricksPropTypes.brickTheme,
-* wrapperStyle: React.PropTypes.object,
-* contentStyle: React.PropTypes.object,
-* headerStyle: React.PropTypes.object,
-* titleStyle: React.PropTypes.object,
-* subtitleStyle: React.PropTypes.object,
-* renderHeader: React.PropTypes.func,
-* children: React.PropTypes.arrayOf(React.PropTypes.element)
+* wrapperStyle: PropTypes.object,
+* contentStyle: PropTypes.object,
+* headerStyle: PropTypes.object,
+* titleStyle: PropTypes.object,
+* subtitleStyle: PropTypes.object,
+* renderHeader: PropTypes.func,
+* children: PropTypes.arrayOf(PropTypes.element)
 
 ### EmailSqueezeBrick
-* buttonLabel: React.PropTypes.string,
-* placeholder: React.PropTypes.string
-* title: React.PropTypes.string
-* subtitle: React.PropTypes.string
+* buttonLabel: PropTypes.string,
+* placeholder: PropTypes.string
+* title: PropTypes.string
+* subtitle: PropTypes.string
 * theme: LandricksPropTypes.brickTheme
-* smallText: React.PropTypes.string
-* contentStyle: React.PropTypes.object,
-* titleStyle: React.PropTypes.object
-* subtitleStyle: React.PropTypes.object
-* buttonStyle: React.PropTypes.object
-* inputStyle: React.PropTypes.object
-* smallStyle: React.PropTypes.object
-* onSubmit: React.PropTypes.func
+* smallText: PropTypes.string
+* contentStyle: PropTypes.object,
+* titleStyle: PropTypes.object
+* subtitleStyle: PropTypes.object
+* buttonStyle: PropTypes.object
+* inputStyle: PropTypes.object
+* smallStyle: PropTypes.object
+* onSubmit: PropTypes.func
 
 ### EnumerationBrick
-* hasHeader: React.PropTypes.bool,
-* title: React.PropTypes.string,
-* subtitle: React.PropTypes.string,
+* hasHeader: PropTypes.bool,
+* title: PropTypes.string,
+* subtitle: PropTypes.string,
 * theme: LandricksPropTypes.brickTheme,
-* wrapperStyle: React.PropTypes.object,
-* contentStyle: React.PropTypes.object,
-* headerStyle: React.PropTypes.object,
-* titleStyle: React.PropTypes.object,
-* subtitleStyle: React.PropTypes.object,
-* renderHeader: React.PropTypes.func,
-* children: React.PropTypes.arrayOf(React.PropTypes.element)
+* wrapperStyle: PropTypes.object,
+* contentStyle: PropTypes.object,
+* headerStyle: PropTypes.object,
+* titleStyle: PropTypes.object,
+* subtitleStyle: PropTypes.object,
+* renderHeader: PropTypes.func,
+* children: PropTypes.arrayOf(PropTypes.element)
 * theme: LandricksPropTypes.brickTheme
 
 ### FeatureItem
-* icon: React.PropTypes.string,
-* image: React.PropTypes.string,
-* title: React.PropTypes.string,
-* description: React.PropTypes.string
+* icon: PropTypes.string,
+* image: PropTypes.string,
+* title: PropTypes.string,
+* description: PropTypes.string
 
 ### FooterBrick
-* withColumns: React.PropTypes.bool
-* simple: React.PropTypes.bool
+* withColumns: PropTypes.bool
+* simple: PropTypes.bool
 * theme: LandricksPropTypes.brickTheme
-* logo: React.PropTypes.string
-* itemsColumn1: React.PropTypes.arrayOf({
-    icon: React.PropTypes.string,
-    link: React.PropTypes.string,
-    text: React.PropTypes.string
+* logo: PropTypes.string
+* itemsColumn1: PropTypes.arrayOf({
+    icon: PropTypes.string,
+    link: PropTypes.string,
+    text: PropTypes.string
   })
-* itemsColumn2: React.PropTypes.arrayOf({
-    icon: React.PropTypes.string,
-    link: React.PropTypes.string,
-    text: React.PropTypes.string
+* itemsColumn2: PropTypes.arrayOf({
+    icon: PropTypes.string,
+    link: PropTypes.string,
+    text: PropTypes.string
   })
-* itemsColumn3: React.PropTypes.arrayOf({
-    icon: React.PropTypes.string,
-    link: React.PropTypes.string,
-    text: React.PropTypes.string
+* itemsColumn3: PropTypes.arrayOf({
+    icon: PropTypes.string,
+    link: PropTypes.string,
+    text: PropTypes.string
 })
 
 ### GenericBrick
-* hasHeader: React.PropTypes.bool,
-* title: React.PropTypes.string,
-* subtitle: React.PropTypes.string,
+* hasHeader: PropTypes.bool,
+* title: PropTypes.string,
+* subtitle: PropTypes.string,
 * theme: LandricksPropTypes.brickTheme,
-* wrapperStyle: React.PropTypes.object,
-* contentStyle: React.PropTypes.object,
-* headerStyle: React.PropTypes.object,
-* titleStyle: React.PropTypes.object,
-* subtitleStyle: React.PropTypes.object,
-* renderContent: React.PropTypes.func,
-* renderHeader: React.PropTypes.func
-* children: React.PropTypes.arrayOf(React.PropTypes.element)
+* wrapperStyle: PropTypes.object,
+* contentStyle: PropTypes.object,
+* headerStyle: PropTypes.object,
+* titleStyle: PropTypes.object,
+* subtitleStyle: PropTypes.object,
+* renderContent: PropTypes.func,
+* renderHeader: PropTypes.func
+* children: PropTypes.arrayOf(PropTypes.element)
 
 ### NavigationBrick
-* brand: React.PropTypes.string
-* logo: React.PropTypes.string
-* items: React.PropTypes.arrayOf({
-    label: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    highlight: React.PropTypes.bool
+* brand: PropTypes.string
+* logo: PropTypes.string
+* items: PropTypes.arrayOf({
+    label: PropTypes.string,
+    onClick: PropTypes.func,
+    highlight: PropTypes.bool
 })
 
 ### PlaceHolder
-* wrapperStyle: React.PropTypes.object,
-* label: React.PropTypes.string,
-* useLoremIpsum: React.PropTypes.bool
+* wrapperStyle: PropTypes.object,
+* label: PropTypes.string,
+* useLoremIpsum: PropTypes.bool
 
 ### StrongMessageBrick
-* messageLevel1: React.PropTypes.string.isRequired,
-* messageLevel2: React.PropTypes.string
-* messageLevel1Style: React.PropTypes.object
-* messageLevel2Style: React.PropTypes.object,
-* contentStyle: React.PropTypes.object,
+* messageLevel1: PropTypes.string.isRequired,
+* messageLevel2: PropTypes.string
+* messageLevel1Style: PropTypes.object
+* messageLevel2Style: PropTypes.object,
+* contentStyle: PropTypes.object,
 * theme: LandricksPropTypes.brickTheme
-* CTAs: React.PropTypes.arrayOf(LandricksPropsTypes.CallToAction)
-* renderCTAs: React.PropTypes.func
+* CTAs: PropTypes.arrayOf(LandricksPropsTypes.CallToAction)
+* renderCTAs: PropTypes.func
 
 ### CallToAction
-* href: React.PropTypes.string,
-* target: React.PropTypes.string,
-* icon: React.PropTypes.string,
-* label: React.PropTypes.string,
-* onClick: React.PropTypes.func
+* href: PropTypes.string,
+* target: PropTypes.string,
+* icon: PropTypes.string,
+* label: PropTypes.string,
+* onClick: PropTypes.func
 * theme: LandricksPropTypes.brickTheme
 
 ### ThemePropagator
-* wrapperStyle: React.PropTypes.object
-* children: React.PropTypes.arrayOf(React.PropTypes.element)
+* wrapperStyle: PropTypes.object
+* children: PropTypes.arrayOf(PropTypes.element)
 
 
 # Default Theme
