@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ThemePropagator, GenericBrick, TripleContentBrick } from '../../';
 import { LandricksPropTypes } from '../../conventions';
+import PropTypes from 'prop-types';
 
 class FooterBrick extends Component {
 
@@ -22,7 +23,7 @@ class FooterBrick extends Component {
 
 FooterBrick.propTypes = {
   theme: LandricksPropTypes.brickTheme,
-  children: React.PropTypes.arrayOf(React.PropTypes.element)
+  children: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default FooterBrick;

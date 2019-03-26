@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Fontawesome from 'react-fontawesome';
+// import Fontawesome from 'react-fontawesome';
 import styler from './styler';
 
 
@@ -63,7 +63,9 @@ export default class NavigationBrick extends Component {
 		return(
 			<nav style={style.collapsed.box}>
 
-				<Fontawesome name={ (this.state.open) ? 'times' : 'bars' } style={ style.menuIcon } onClick={ ()=> this.setState({ open : !this.state.open }) } />
+{
+					// <Fontawesome name={ (this.state.open) ? 'times' : 'bars' } style={ style.menuIcon } onClick={ ()=> this.setState({ open : !this.state.open }) } />
+				}
 
 				{ this.renderLogo(style) }
 

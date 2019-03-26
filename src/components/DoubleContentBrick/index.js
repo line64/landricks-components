@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles';
 import { ThemePropagator, GenericBrick } from '../../';
+import PropTypes from 'prop-types';
 import { LandricksPropTypes } from '../../conventions';
 
 class DoubleContentBrick extends Component {
@@ -56,17 +57,17 @@ class DoubleContentBrick extends Component {
 }
 
 DoubleContentBrick.propTypes = {
-  hasHeader: React.PropTypes.bool,
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
+  hasHeader: PropTypes.bool,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   theme: LandricksPropTypes.brickTheme,
-  wrapperStyle: React.PropTypes.object,
-  contentStyle: React.PropTypes.object,
-  headerStyle: React.PropTypes.object,
-  titleStyle: React.PropTypes.object,
-  subtitleStyle: React.PropTypes.object,
-  renderHeader: React.PropTypes.func,
-  children: React.PropTypes.arrayOf(React.PropTypes.element)
+  wrapperStyle: PropTypes.object,
+  contentStyle: PropTypes.object,
+  headerStyle: PropTypes.object,
+  titleStyle: PropTypes.object,
+  subtitleStyle: PropTypes.object,
+  renderHeader: PropTypes.func,
+  children: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default DoubleContentBrick;

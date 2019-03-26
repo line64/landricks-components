@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
 function calculateViewportFromWindow() {
   if (typeof window !== 'undefined') {
@@ -24,13 +23,7 @@ function renderAugmentedChildren(props) {
 const LandingCanvas = (props) => {
   return (
     <div style={ props.wrapperStyle }>
-      <Helmet
-        link={[
-          { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato' },
-          { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' }
-        ]}
-      />
-      { renderAugmentedChildren(props) }
+      { props.children }
     </div>
   );
 }
