@@ -44,7 +44,7 @@ export default function (props) {
     form: {
       flexDirection: 'row',
       justifyContent: 'center',
-      display: 'block',
+      display: 'inline-flex',
       padding: '0 5%',
       marginBottom: '10px'
     },

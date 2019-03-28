@@ -12,7 +12,7 @@ class StrongMessageBrick extends Component {
     }
 
     return (
-      <h1 style={ styles.messageLevel1 }>{ props.messageLevel1 }</h1>
+      <h1 className={props.classNameMsg1} style={ styles.messageLevel1 }>{ props.messageLevel1 }</h1>
     );
 
   }
@@ -28,10 +28,12 @@ class StrongMessageBrick extends Component {
     }
 
     return (
-      <h2 style={ styles.messageLevel2 }>{ props.messageLevel2 }</h2>
+      <h2 className={props.classNameMsg2} style={ styles.messageLevel2 }>{ props.messageLevel2 }</h2>
     );
 
   }
+
+  
 
   renderCTAs(styles, props) {
 

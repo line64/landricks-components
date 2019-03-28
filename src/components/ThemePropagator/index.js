@@ -10,7 +10,7 @@ function renderThemedChildren(props) {
 
 const ThemePropagator = (props) => {
   return (
-    <div style={props.wrapperStyle}>
+    <div className={props.className} style={props.wrapperStyle}>
       { renderThemedChildren(props) }
     </div>
   );
